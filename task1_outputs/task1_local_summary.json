@@ -1,0 +1,110 @@
+{
+  "generated_utc": "2026-10-24T06:10:16.636601+00:00",
+  "run_mode": "local",
+  "sources": {
+    "prices": "REPLACE_WITH_LECTURER_SOURCE_OR_DOWNLOAD_REFERENCE",
+    "gdelt": "REPLACE_WITH_EXACT_GDELT_SOURCE_ARCHIVE_REFERENCE"
+  },
+  "acquired_utc": "REPLACE_WITH_ACTUAL_DOWNLOAD_DATE_UTC",
+  "price_file_count": 1,
+  "gdelt_file_count": 3,
+  "price_quality": {
+    "rows": 619040,
+    "invalid_dates": 0,
+    "invalid_or_missing_open": 11,
+    "nonpositive_open": 0,
+    "invalid_or_missing_high": 8,
+    "nonpositive_high": 0,
+    "invalid_or_missing_low": 8,
+    "nonpositive_low": 0,
+    "invalid_or_missing_close": 0,
+    "nonpositive_close": 0,
+    "invalid_or_missing_volume": 0,
+    "negative_volume": 0,
+    "high_below_low": 1,
+    "open_outside_range": 4,
+    "close_outside_range": 9,
+    "distinct_security_ids": 505,
+    "earliest_date": "2013-02-08",
+    "latest_date": "2018-02-07",
+    "missing_by_column": {
+      "date": 0,
+      "open": 11,
+      "high": 8,
+      "low": 8,
+      "close": 0,
+      "volume": 0,
+      "Name": 0
+    },
+    "schema_columns": [
+      "date",
+      "open",
+      "high",
+      "low",
+      "close",
+      "volume",
+      "Name"
+    ]
+  },
+  "gdelt_archive_metadata_only": false,
+  "gdelt_quality": [
+    {
+      "filename": "20171227.export.CSV.zip",
+      "total_records": 134988,
+      "missing_values": 0,
+      "duplicate_event_ids": 0,
+      "invalid_event_dates": 0,
+      "invalid_column_counts": 0,
+      "earliest_event_date": "2007-12-30",
+      "latest_event_date": "2017-12-27",
+      "missing_GlobalEventID": 0,
+      "missing_SQLDATE": 0,
+      "missing_DATEADDED": 0,
+      "missing_EventCode": 0,
+      "missing_AvgTone": 0
+    },
+    {
+      "filename": "20171228.export.CSV.zip",
+      "total_records": 141392,
+      "missing_values": 0,
+      "duplicate_event_ids": 0,
+      "invalid_event_dates": 0,
+      "invalid_column_counts": 0,
+      "earliest_event_date": "2007-12-31",
+      "latest_event_date": "2017-12-28",
+      "missing_GlobalEventID": 0,
+      "missing_SQLDATE": 0,
+      "missing_DATEADDED": 0,
+      "missing_EventCode": 0,
+      "missing_AvgTone": 0
+    },
+    {
+      "filename": "20171229.export.CSV.zip",
+      "total_records": 133245,
+      "missing_values": 0,
+      "duplicate_event_ids": 0,
+      "invalid_event_dates": 0,
+      "invalid_column_counts": 0,
+      "earliest_event_date": "2008-01-01",
+      "latest_event_date": "2017-12-29",
+      "missing_GlobalEventID": 0,
+      "missing_SQLDATE": 0,
+      "missing_DATEADDED": 0,
+      "missing_EventCode": 0,
+      "missing_AvgTone": 0
+    }
+  ],
+  "gdelt_total_records": 409625,
+  "gdelt_total_missing_values": 0,
+  "gdelt_total_duplicate_events": 0,
+  "gdelt_total_invalid_dates": 0,
+  "gdelt_total_invalid_column_counts": 0,
+  "limitations": [
+    "Only three GDELT archives (27-29 December 2017) were assessed as a test sample.",
+    "GDELT missing-value checks covered five selected fields, not all 58 columns.",
+    "SQLDATE was validated, but DATEADDED and numeric value ranges require further validation.",
+    "Source links, acquisition timestamps and remaining data dictionary descriptions require verification.",
+    "Local inspection does not satisfy required EMR/HDFS execution evidence.",
+    "Additional GDELT historical data is required for the final stock prediction analysis."
+  ]
+}

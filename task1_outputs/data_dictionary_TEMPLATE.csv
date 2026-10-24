@@ -1,0 +1,8 @@
+source,field,type,meaning,units,time_semantics,native_identifier
+prices,date,Date,Trading date,YYYY-MM-DD,Trading day,NO
+prices,open,Float,Opening stock price,Price units (verify currency),Trading day,NO
+prices,high,Float,Highest stock price during the day,Price units (verify currency),Trading day,NO
+prices,low,Float,Lowest stock price during the day,Price units (verify currency),Trading day,NO
+prices,close,Float,Closing stock price,Price units (verify currency),Trading day,NO
+prices,volume,Integer,Number of shares traded,Shares,Trading day,NO
+prices,Name,String,Stock ticker symbol,N/A,Stock identifier,YES

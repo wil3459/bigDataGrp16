@@ -1,0 +1,4 @@
+filename,compressed_bytes,zip_valid,members,uncompressed_bytes,crc_error_member,error
+20171227.export.CSV.zip,8918869,True,1,51757873,,
+20171228.export.CSV.zip,9439595,True,1,54143329,,
+20171229.export.CSV.zip,8892460,True,1,51075034,,

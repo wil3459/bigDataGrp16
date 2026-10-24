@@ -1,0 +1,66 @@
+source,field,type,meaning,units,time_semantics,native_identifier
+prices,date,Date,Trading date,YYYY-MM-DD,Trading day,NO
+prices,open,Float,Opening stock price,Price units (verify currency),Trading day,NO
+prices,high,Float,Highest stock price during the day,Price units (verify currency),Trading day,NO
+prices,low,Float,Lowest stock price during the day,Price units (verify currency),Trading day,NO
+prices,close,Float,Closing stock price,Price units (verify currency),Trading day,NO
+prices,volume,Integer,Number of shares traded,Shares,Trading day,NO
+prices,Name,String,Stock ticker symbol,N/A,Stock identifier,YES
+GDELT,GlobalEventID,String,Unique GDELT event identifier,N/A,Event identifier,YES
+GDELT,SQLDATE,Date,Date associated with the event,YYYYMMDD,Event date,NO
+GDELT,MonthYear,VERIFY,FILL IN,FILL IN,FILL IN,YES/NO
+GDELT,Year,VERIFY,FILL IN,FILL IN,FILL IN,YES/NO
+GDELT,FractionDate,VERIFY,FILL IN,FILL IN,FILL IN,YES/NO
+GDELT,Actor1Code,VERIFY,FILL IN,FILL IN,FILL IN,YES/NO
+GDELT,Actor1Name,VERIFY,FILL IN,FILL IN,FILL IN,YES/NO
+GDELT,Actor1CountryCode,VERIFY,FILL IN,FILL IN,FILL IN,YES/NO
+GDELT,Actor1KnownGroupCode,VERIFY,FILL IN,FILL IN,FILL IN,YES/NO
+GDELT,Actor1EthnicCode,VERIFY,FILL IN,FILL IN,FILL IN,YES/NO
+GDELT,Actor1Religion1Code,VERIFY,FILL IN,FILL IN,FILL IN,YES/NO
+GDELT,Actor1Religion2Code,VERIFY,FILL IN,FILL IN,FILL IN,YES/NO
+GDELT,Actor1Type1Code,VERIFY,FILL IN,FILL IN,FILL IN,YES/NO
+GDELT,Actor1Type2Code,VERIFY,FILL IN,FILL IN,FILL IN,YES/NO
+GDELT,Actor1Type3Code,VERIFY,FILL IN,FILL IN,FILL IN,YES/NO
+GDELT,Actor2Code,VERIFY,FILL IN,FILL IN,FILL IN,YES/NO
+GDELT,Actor2Name,VERIFY,FILL IN,FILL IN,FILL IN,YES/NO
+GDELT,Actor2CountryCode,VERIFY,FILL IN,FILL IN,FILL IN,YES/NO
+GDELT,Actor2KnownGroupCode,VERIFY,FILL IN,FILL IN,FILL IN,YES/NO
+GDELT,Actor2EthnicCode,VERIFY,FILL IN,FILL IN,FILL IN,YES/NO
+GDELT,Actor2Religion1Code,VERIFY,FILL IN,FILL IN,FILL IN,YES/NO
+GDELT,Actor2Religion2Code,VERIFY,FILL IN,FILL IN,FILL IN,YES/NO
+GDELT,Actor2Type1Code,VERIFY,FILL IN,FILL IN,FILL IN,YES/NO
+GDELT,Actor2Type2Code,VERIFY,FILL IN,FILL IN,FILL IN,YES/NO
+GDELT,Actor2Type3Code,VERIFY,FILL IN,FILL IN,FILL IN,YES/NO
+GDELT,IsRootEvent,VERIFY,FILL IN,FILL IN,FILL IN,YES/NO
+GDELT,EventCode,String,CAMEO event classification code,N/A,Event classification,NO
+GDELT,EventBaseCode,VERIFY,FILL IN,FILL IN,FILL IN,YES/NO
+GDELT,EventRootCode,VERIFY,FILL IN,FILL IN,FILL IN,YES/NO
+GDELT,QuadClass,VERIFY,FILL IN,FILL IN,FILL IN,YES/NO
+GDELT,GoldsteinScale,Float,Goldstein score associated with the event type,Score,Event attribute,NO
+GDELT,NumMentions,Integer,Number of event mentions,Count,Event coverage,NO
+GDELT,NumSources,Integer,Number of distinct sources reporting the event,Count,Event coverage,NO
+GDELT,NumArticles,Integer,Number of articles mentioning the event,Count,Event coverage,NO
+GDELT,AvgTone,Float,Average tone of event coverage,Tone score,Event coverage,NO
+GDELT,Actor1Geo_Type,VERIFY,FILL IN,FILL IN,FILL IN,YES/NO
+GDELT,Actor1Geo_FullName,VERIFY,FILL IN,FILL IN,FILL IN,YES/NO
+GDELT,Actor1Geo_CountryCode,VERIFY,FILL IN,FILL IN,FILL IN,YES/NO
+GDELT,Actor1Geo_ADM1Code,VERIFY,FILL IN,FILL IN,FILL IN,YES/NO
+GDELT,Actor1Geo_Lat,VERIFY,FILL IN,FILL IN,FILL IN,YES/NO
+GDELT,Actor1Geo_Long,VERIFY,FILL IN,FILL IN,FILL IN,YES/NO
+GDELT,Actor1Geo_FeatureID,VERIFY,FILL IN,FILL IN,FILL IN,YES/NO
+GDELT,Actor2Geo_Type,VERIFY,FILL IN,FILL IN,FILL IN,YES/NO
+GDELT,Actor2Geo_FullName,VERIFY,FILL IN,FILL IN,FILL IN,YES/NO
+GDELT,Actor2Geo_CountryCode,VERIFY,FILL IN,FILL IN,FILL IN,YES/NO
+GDELT,Actor2Geo_ADM1Code,VERIFY,FILL IN,FILL IN,FILL IN,YES/NO
+GDELT,Actor2Geo_Lat,VERIFY,FILL IN,FILL IN,FILL IN,YES/NO
+GDELT,Actor2Geo_Long,VERIFY,FILL IN,FILL IN,FILL IN,YES/NO
+GDELT,Actor2Geo_FeatureID,VERIFY,FILL IN,FILL IN,FILL IN,YES/NO
+GDELT,ActionGeo_Type,VERIFY,FILL IN,FILL IN,FILL IN,YES/NO
+GDELT,ActionGeo_FullName,VERIFY,FILL IN,FILL IN,FILL IN,YES/NO
+GDELT,ActionGeo_CountryCode,VERIFY,FILL IN,FILL IN,FILL IN,YES/NO
+GDELT,ActionGeo_ADM1Code,VERIFY,FILL IN,FILL IN,FILL IN,YES/NO
+GDELT,ActionGeo_Lat,VERIFY,FILL IN,FILL IN,FILL IN,YES/NO
+GDELT,ActionGeo_Long,VERIFY,FILL IN,FILL IN,FILL IN,YES/NO
+GDELT,ActionGeo_FeatureID,VERIFY,FILL IN,FILL IN,FILL IN,YES/NO
+GDELT,DATEADDED,Date,Date event was added to GDELT,YYYYMMDD,Availability date,NO
+GDELT,SOURCEURL,String,URL of the source article,URL,Source reference,NO

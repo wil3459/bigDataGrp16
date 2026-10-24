@@ -1,0 +1,2 @@
+source,filename,relative_path,bytes,sha256,acquired_utc,source_reference
+prices,all_stocks_5yr.csv,dataset/all_stocks_5yr.csv,29580549,6aea253cd19de60b568143991aaf1fa482456565c389205658d236e595e716cf,REPLACE_WITH_ACTUAL_DOWNLOAD_DATE_UTC,REPLACE_WITH_LECTURER_SOURCE_OR_DOWNLOAD_REFERENCE
