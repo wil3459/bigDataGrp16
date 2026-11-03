@@ -1,0 +1,9 @@
+reason	bad_price	11
+reason	bad_volume	4
+reason	close_outside_range	9
+reason	high_below_low	1
+reason	open_outside_range	4
+reason	out_of_range	13130
+rows	accepted	605887
+rows	rejected	13153
+rows	total	619040
