@@ -3,3 +3,6 @@
 __pycache__/
 dataset/
 task2_outputs/
+venv/
+*.crc
+_SUCCESS

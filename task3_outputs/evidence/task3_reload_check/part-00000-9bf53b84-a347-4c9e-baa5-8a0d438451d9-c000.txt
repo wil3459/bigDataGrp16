@@ -1,0 +1,13 @@
+{
+  "check": "reload saved PipelineModel in fresh session and reproduce test predictions",
+  "command": "PipelineModel.load(MODEL_PATH).transform(stored test features)",
+  "tolerance": 1e-09,
+  "rows_compared": 25441,
+  "unmatched_rows": 0,
+  "max_abs_pred_diff": 0.0,
+  "result": "PASS",
+  "spark_version": "4.0.5",
+  "spark_version_saved": "4.0.5",
+  "timestamp_utc": "2026-11-06T10:06:49.638891+00:00",
+  "model_path": "file:///content/task3_outputs/model_best"
+}
