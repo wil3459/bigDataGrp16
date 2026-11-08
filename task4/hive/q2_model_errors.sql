@@ -32,7 +32,7 @@ GROUP BY month
 ORDER BY month;
 
 -- Error by calm / medium / volatile group
-SELECT CASE grp WHEN 1 THEN '1_calm' WHEN 2 THEN '2_medium' ELSE '3_volatile' END AS grp,
+SELECT CASE grp WHEN 1 THEN '1_calm' WHEN 2 THEN '2_medium' ELSE '3_volatile' END AS grp_name,
        COUNT(*)                                           AS n,
        SQRT(AVG(POW(prediction - label, 2)))              AS rmse_model,
        SQRT(AVG(POW(baseline   - label, 2)))              AS rmse_base,
