@@ -1,5 +1,6 @@
 -- Q2: Where is the model most and least reliable? (2017 test set)
--- Inputs : predictions (view over Task 3's reference_test_predictions: symbol, anchor_date, prediction, label)
+-- Readable copy. The notebook (task4_analytics.ipynb) runs the same SQL inside its cells.
+-- Inputs : predictions (view over Task 3's test predictions: symbol, anchor_date, prediction, label)
 --          project.weekly_all (adds the baseline vol_12w and the stock's vol_52w)
 -- Calm / medium / volatile = three equal-sized groups by vol_52w, a feature known
 -- at prediction time. The 2017 actual outcome is not used to form the groups.
