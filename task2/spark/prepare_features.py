@@ -64,9 +64,12 @@ def main():
     spark = SparkSession.builder.appName("task2-weekly-features").enableHiveSupport().getOrCreate()
     classified = spark.sparkContext.textFile(RAW_PATH).map(classify_line).filter(lambda row: row is not None)
     daily = spark.createDataFrame(classified)
-    daily.filter(F.col("status") == "rejected").write.mode("overwrite").parquet(f"{OUT_BASE}/prices_rejected")
+    # The CSV fields stay as date and Name until here. Hive matches these
+    # parquet files by name, and 01_register.sql calls them trade_date and ticker.
+    hive_daily = daily.withColumnRenamed("date", "trade_date").withColumnRenamed("Name", "ticker")
+    hive_daily.filter(F.col("status") == "rejected").write.mode("overwrite").parquet(f"{OUT_BASE}/prices_rejected")
     cleaned = daily.filter(F.col("status") == "accepted")
-    cleaned.write.mode("overwrite").parquet(f"{OUT_BASE}/prices_cleaned")
+    hive_daily.filter(F.col("status") == "accepted").write.mode("overwrite").parquet(f"{OUT_BASE}/prices_cleaned")
 
     weekly_rdd = (
         cleaned.select("Name", "date", "open", "high", "low", "close", "volume")
