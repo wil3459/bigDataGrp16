@@ -1,0 +1,212 @@
+{
+  "run_timestamp_utc": "2026-11-10T09:54:32.427414+00:00",
+  "spark_version": "3.5.5-amzn-1",
+  "expected_spark_prefix": "3.5",
+  "spark_version_ok": true,
+  "python_version": "3.9.25",
+  "seed": 42,
+  "task": "predict next week's volatility (Task 2 target_next_vol: sample std of daily log returns from the anchor day's close to the day before the next anchor day) from the Task 2 weekly features",
+  "splits": {
+    "train": [
+      "2013-01-01",
+      "2015-12-31"
+    ],
+    "val": [
+      "2016-01-01",
+      "2016-12-31"
+    ],
+    "test": [
+      "2017-01-01",
+      "2017-12-31"
+    ]
+  },
+  "features": [
+    "vol_1w",
+    "vol_4w",
+    "vol_12w",
+    "vol_52w",
+    "high_low_range",
+    "weekly_return",
+    "volume_vs_normal",
+    "split_flag"
+  ],
+  "task2_expected_rows": {
+    "train": 66907,
+    "val": 25310,
+    "test": 25441
+  },
+  "loaded_rows": {
+    "val": 25310,
+    "train": 66907,
+    "test": 25441
+  },
+  "input_tables": [
+    "project.weekly_train",
+    "project.weekly_validation",
+    "project.weekly_test"
+  ],
+  "row_counts": {
+    "train": 66907,
+    "val": 25310,
+    "test": 25441
+  },
+  "exclusions": {
+    "test|ok": 25441,
+    "train|ok": 66907,
+    "val|ok": 25310
+  },
+  "baseline": "volatility over the previous 12 weeks (vol_12w from Task 2)",
+  "validation_baselines": {
+    "vol_12w": {
+      "rmse": 0.011139,
+      "mae": 0.007658,
+      "r2": 0.0611
+    }
+  },
+  "test_baselines": {
+    "vol_12w": {
+      "rmse": 0.009849,
+      "mae": 0.006395,
+      "r2": -0.106
+    }
+  },
+  "calibrated_baseline": {
+    "description": "Linear regression trained using only vol_12w",
+    "validation": {
+      "rmse": 0.010483,
+      "mae": 0.006693,
+      "r2": 0.1684
+    },
+    "test": {
+      "rmse": 0.008997,
+      "mae": 0.005726,
+      "r2": 0.077
+    }
+  },
+  "weights": {
+    "rule": "1 / max(predicted vol, vol_floor), normalised to sum to 1 within each week",
+    "floor_pct_of_train": 0.05,
+    "min_weekly_weight_sum": 0.9999999999999987,
+    "max_weekly_weight_sum": 1.0000000000000018,
+    "largest_single_weight": 0.0071824111538764486,
+    "avg_weighted_actual_vol": 0.010387827259222875,
+    "avg_equal_weight_actual_vol": 0.011173693348831738,
+    "vol_floor": 0.0032454633321006795,
+    "rows": 25441,
+    "rows_floored": 11
+  },
+  "models": [
+    {
+      "model": "linreg",
+      "params": "{\"regParam\": 0.0}",
+      "val_rmse": 0.010168,
+      "val_mae": 0.006615,
+      "val_r2": 0.2177,
+      "fit_s": 5.6
+    },
+    {
+      "model": "linreg",
+      "params": "{\"regParam\": 0.01}",
+      "val_rmse": 0.010327,
+      "val_mae": 0.006609,
+      "val_r2": 0.193,
+      "fit_s": 1.8
+    },
+    {
+      "model": "linreg",
+      "params": "{\"regParam\": 0.1}",
+      "val_rmse": 0.011095,
+      "val_mae": 0.006956,
+      "val_r2": 0.0685,
+      "fit_s": 1.5
+    },
+    {
+      "model": "random_forest",
+      "params": "{\"numTrees\": 50, \"maxDepth\": 4}",
+      "val_rmse": 0.010358,
+      "val_mae": 0.006627,
+      "val_r2": 0.1881,
+      "fit_s": 4.6
+    },
+    {
+      "model": "random_forest",
+      "params": "{\"numTrees\": 50, \"maxDepth\": 6}",
+      "val_rmse": 0.010249,
+      "val_mae": 0.006608,
+      "val_r2": 0.2052,
+      "fit_s": 4.8
+    },
+    {
+      "model": "random_forest",
+      "params": "{\"numTrees\": 100, \"maxDepth\": 4}",
+      "val_rmse": 0.010354,
+      "val_mae": 0.006629,
+      "val_r2": 0.1888,
+      "fit_s": 5.0
+    },
+    {
+      "model": "random_forest",
+      "params": "{\"numTrees\": 100, \"maxDepth\": 6}",
+      "val_rmse": 0.010253,
+      "val_mae": 0.006613,
+      "val_r2": 0.2044,
+      "fit_s": 7.8
+    },
+    {
+      "model": "gbt",
+      "params": "{\"maxIter\": 20, \"maxDepth\": 3}",
+      "val_rmse": 0.010325,
+      "val_mae": 0.006691,
+      "val_r2": 0.1933,
+      "fit_s": 7.6
+    },
+    {
+      "model": "gbt",
+      "params": "{\"maxIter\": 20, \"maxDepth\": 5}",
+      "val_rmse": 0.010293,
+      "val_mae": 0.006691,
+      "val_r2": 0.1982,
+      "fit_s": 9.8
+    },
+    {
+      "model": "gbt",
+      "params": "{\"maxIter\": 50, \"maxDepth\": 3}",
+      "val_rmse": 0.010258,
+      "val_mae": 0.006657,
+      "val_r2": 0.2037,
+      "fit_s": 14.5
+    },
+    {
+      "model": "gbt",
+      "params": "{\"maxIter\": 50, \"maxDepth\": 5}",
+      "val_rmse": 0.010326,
+      "val_mae": 0.006717,
+      "val_r2": 0.1931,
+      "fit_s": 21.2
+    }
+  ],
+  "final_model": {
+    "model": "linreg",
+    "params": "{\"regParam\": 0.0}"
+  },
+  "validation_final": {
+    "val_rmse": 0.010168,
+    "val_mae": 0.006615,
+    "val_r2": 0.2177
+  },
+  "test_model": {
+    "rmse": 0.008882,
+    "mae": 0.005631,
+    "r2": 0.1005
+  },
+  "model_path": "hdfs:///project/runs/full_alt_partitions8_r1/task3/model_best",
+  "weights_path": "hdfs:///project/runs/full_alt_partitions8_r1/task3/test_weights",
+  "timings_s": {
+    "build_weekly_table": 3.66,
+    "train_and_validate_all": 84.49,
+    "test_evaluation": 0.85,
+    "save_model": 1.26,
+    "weights": 2.29
+  },
+  "run_id": "full_alt_partitions8_r1"
+}

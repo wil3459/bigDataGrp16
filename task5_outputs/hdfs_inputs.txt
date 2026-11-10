@@ -1,0 +1,4 @@
+drwxr-xr-x   - hadoop hdfsadmingroup          0 2026-11-10 06:48 /project/inputs/full
+-rw-r--r--   2 hadoop hdfsadmingroup   29580549 2026-11-10 06:48 /project/inputs/full/all_stocks_5yr.csv
+drwxr-xr-x   - hadoop hdfsadmingroup          0 2026-11-10 06:48 /project/inputs/sample
+-rw-r--r--   2 hadoop hdfsadmingroup    2993809 2026-11-10 06:48 /project/inputs/sample/all_stocks_5yr_sample.csv

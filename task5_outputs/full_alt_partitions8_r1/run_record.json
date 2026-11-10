@@ -1,0 +1,97 @@
+{
+  "run_id": "full_alt_partitions8_r1",
+  "profile": "full",
+  "config": "alt_partitions8",
+  "repeat": 1,
+  "shuffle_partitions": 8,
+  "finished_utc": "2026-11-10T09:54:50.183769Z",
+  "stage_seconds": {
+    "t2_streaming_audit": 32.4,
+    "t2_hive_register": 12.5,
+    "t2_spark_features": 143.4,
+    "t2_hive_reconcile": 30.0,
+    "spark_session_start": 13.9,
+    "task3_total": 106.1,
+    "task4_total": 11.4,
+    "end_to_end": 358.2
+  },
+  "yarn_app_ids": [
+    "application_1794303890982_0001",
+    "application_1794303890982_0003",
+    "application_1794303890982_0004",
+    "application_1794303890982_0005"
+  ],
+  "raw_rows": 619040,
+  "accepted_rows": 605887,
+  "rejected_rows": 13153,
+  "weekly_rows": {
+    "train": 66907,
+    "val": 25310,
+    "test": 25441
+  },
+  "final_model": "linreg {\"regParam\": 0.0}",
+  "test_model": {
+    "rmse": 0.008882,
+    "mae": 0.005631,
+    "r2": 0.1005
+  },
+  "test_baseline": {
+    "vol_12w": {
+      "rmse": 0.009849,
+      "mae": 0.006395,
+      "r2": -0.106
+    }
+  },
+  "hdfs_du": {
+    "/project/raw/prices/all_stocks_5yr.csv": [
+      "29580549",
+      "59161098"
+    ],
+    "/project/prepared": [
+      "26822494",
+      "53644988"
+    ],
+    "/project/runs/full_alt_partitions8_r1": [
+      "9036815",
+      "18073630"
+    ]
+  },
+  "hdfs_report": "DFS Remaining: 103091232830 (96.01 GB)\nDFS Used: 4056044481 (3.78 GB)\nName: 172.31.14.235:9866 (ip-172-31-14-235.ec2.internal)\nDFS Used: 2028651457 (1.89 GB)\nNon DFS Used: 8599907391 (8.01 GB)\nDFS Remaining: 51480000543 (47.94 GB)\nName: 172.31.8.141:9866 (ip-172-31-8-141.ec2.internal)\nDFS Used: 2027393024 (1.89 GB)\nNon DFS Used: 8469934080 (7.89 GB)\nDFS Remaining: 51611232287 (48.07 GB)\n",
+  "spark_ui_evidence": {
+    "application_1794303890982_0005": {
+      "numCompleteTasks": 3622,
+      "inputBytes": 4657375601,
+      "shuffleReadBytes": 56396244,
+      "shuffleWriteBytes": 55052842,
+      "memoryBytesSpilled": 0,
+      "diskBytesSpilled": 0,
+      "stages": 970
+    },
+    "application_1794303890982_0003": {
+      "numCompleteTasks": 23,
+      "inputBytes": 159284321,
+      "shuffleReadBytes": 23418568,
+      "shuffleWriteBytes": 23418568,
+      "memoryBytesSpilled": 0,
+      "diskBytesSpilled": 0,
+      "stages": 22
+    }
+  },
+  "executor_memory": [
+    {
+      "id": "driver",
+      "maxMemory": 1099746508,
+      "peakJVMHeap": 410780160
+    },
+    {
+      "id": "2",
+      "maxMemory": 3247649587,
+      "peakJVMHeap": 2051847056
+    },
+    {
+      "id": "1",
+      "maxMemory": 3247649587,
+      "peakJVMHeap": 2120294840
+    }
+  ]
+}

@@ -1,0 +1,3 @@
+  619041 all_stocks_5yr.csv
+   63125 all_stocks_5yr_sample.csv
+  682166 total

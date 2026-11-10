@@ -1,0 +1,812 @@
+
+$ hadoop fs -rm -r -f -skipTrash /project/raw/prices
+Deleted /project/raw/prices
+
+[exit 0]
+
+$ hadoop fs -rm -r -f -skipTrash /project/audit
+Deleted /project/audit
+
+[exit 0]
+
+$ hadoop fs -rm -r -f -skipTrash /project/prepared
+Deleted /project/prepared
+
+[exit 0]
+
+$ hadoop fs -rm -r -f -skipTrash /project/runs/sample_reference_r0
+
+[exit 0]
+
+$ hadoop fs -mkdir -p /project/raw/prices /project/audit /project/prepared /project/runs/sample_reference_r0
+
+[exit 0]
+
+$ hadoop fs -cp /project/inputs/sample/all_stocks_5yr_sample.csv /project/raw/prices/all_stocks_5yr_sample.csv
+
+[exit 0]
+
+$ hadoop jar /usr/lib/hadoop-mapreduce/hadoop-streaming.jar -D mapreduce.job.reduces=1 -D stream.num.map.output.key.fields=2 -files task2/streaming/mapper.py#mapper.py,task2/streaming/reducer.py#reducer.py,task2/lib/rules.py#rules.py -mapper 'python3 mapper.py' -reducer 'python3 reducer.py' -input /project/raw/prices/all_stocks_5yr_sample.csv -output /project/audit/price_row_audit
+packageJobJar: [] [/usr/lib/hadoop/hadoop-streaming-3.4.1-amzn-2.jar] /tmp/streamjob18398886013700171271.jar tmpDir=null
+2026-11-10 07:34:55,597 INFO client.DefaultNoHARMFailoverProxyProvider: Connecting to ResourceManager at ip-172-31-15-156.ec2.internal/172.31.15.156:8032
+2026-11-10 07:34:55,720 INFO client.AHSProxy: Connecting to Application History server at ip-172-31-15-156.ec2.internal/172.31.15.156:10200
+2026-11-10 07:34:55,768 INFO client.DefaultNoHARMFailoverProxyProvider: Connecting to ResourceManager at ip-172-31-15-156.ec2.internal/172.31.15.156:8032
+2026-11-10 07:34:55,769 INFO client.AHSProxy: Connecting to Application History server at ip-172-31-15-156.ec2.internal/172.31.15.156:10200
+2026-11-10 07:34:55,957 INFO mapreduce.JobResourceUploader: Disabling Erasure Coding for path: /tmp/hadoop-yarn/staging/hadoop/.staging/job_1794292319670_0007
+2026-11-10 07:34:56,263 INFO lzo.GPLNativeCodeLoader: Loaded native gpl library
+2026-11-10 07:34:56,265 INFO lzo.LzoCodec: Successfully loaded & initialized native-lzo library [hadoop-lzo rev 049362b7cf53ff5f739d6b1532457f2c6cd495e8]
+2026-11-10 07:34:56,304 INFO mapred.FileInputFormat: Total input files to process : 1
+2026-11-10 07:34:56,360 INFO mapreduce.JobSubmitter: number of splits:8
+2026-11-10 07:34:56,582 INFO mapreduce.JobSubmitter: Submitting tokens for job: job_1794292319670_0007
+2026-11-10 07:34:56,583 INFO mapreduce.JobSubmitter: Executing with tokens: []
+2026-11-10 07:34:56,801 INFO conf.Configuration: resource-types.xml not found
+2026-11-10 07:34:56,802 INFO resource.ResourceUtils: Unable to find 'resource-types.xml'.
+2026-11-10 07:34:56,878 INFO impl.YarnClientImpl: Submitted application application_1794292319670_0007
+2026-11-10 07:34:56,911 INFO mapreduce.Job: The url to track the job: http://ip-172-31-15-156.ec2.internal:20888/proxy/application_1794292319670_0007/
+2026-11-10 07:34:56,912 INFO mapreduce.Job: Running job: job_1794292319670_0007
+2026-11-10 07:35:04,010 INFO mapreduce.Job: Job job_1794292319670_0007 running in uber mode : false
+2026-11-10 07:35:04,010 INFO mapreduce.Job:  map 0% reduce 0%
+2026-11-10 07:35:12,091 INFO mapreduce.Job:  map 25% reduce 0%
+2026-11-10 07:35:17,129 INFO mapreduce.Job:  map 75% reduce 0%
+2026-11-10 07:35:18,144 INFO mapreduce.Job:  map 88% reduce 0%
+2026-11-10 07:35:19,149 INFO mapreduce.Job:  map 100% reduce 0%
+2026-11-10 07:35:21,159 INFO mapreduce.Job:  map 100% reduce 100%
+2026-11-10 07:35:22,170 INFO mapreduce.Job: Job job_1794292319670_0007 completed successfully
+2026-11-10 07:35:22,253 INFO mapreduce.Job: Counters: 55
+	File System Counters
+		FILE: Number of bytes read=100077
+		FILE: Number of bytes written=3166243
+		FILE: Number of read operations=0
+		FILE: Number of large read operations=0
+		FILE: Number of write operations=0
+		HDFS: Number of bytes read=3125737
+		HDFS: Number of bytes written=177
+		HDFS: Number of read operations=29
+		HDFS: Number of large read operations=0
+		HDFS: Number of write operations=2
+		HDFS: Number of bytes read erasure-coded=0
+	Job Counters 
+		Killed map tasks=1
+		Launched map tasks=8
+		Launched reduce tasks=1
+		Data-local map tasks=8
+		Total time spent by all maps in occupied slots (ms)=205897728
+		Total time spent by all reduces in occupied slots (ms)=20619264
+		Total time spent by all map tasks (ms)=67024
+		Total time spent by all reduce tasks (ms)=3356
+		Total vcore-milliseconds taken by all map tasks=67024
+		Total vcore-milliseconds taken by all reduce tasks=3356
+		Total megabyte-milliseconds taken by all map tasks=205897728
+		Total megabyte-milliseconds taken by all reduce tasks=20619264
+	Map-Reduce Framework
+		Map input records=63125
+		Map output records=127580
+		Map output bytes=1859912
+		Map output materialized bytes=100579
+		Input split bytes=1104
+		Combine input records=0
+		Combine output records=0
+		Reduce input groups=8
+		Reduce shuffle bytes=100579
+		Reduce input records=127580
+		Reduce output records=8
+		Spilled Records=255160
+		Shuffled Maps =8
+		Failed Shuffles=0
+		Merged Map outputs=8
+		GC time elapsed (ms)=360
+		CPU time spent (ms)=14640
+		Physical memory (bytes) snapshot=4389068800
+		Virtual memory (bytes) snapshot=43510489088
+		Total committed heap usage (bytes)=4634705920
+		Peak Map Physical memory (bytes)=528949248
+		Peak Map Virtual memory (bytes)=4546826240
+		Peak Reduce Physical memory (bytes)=347979776
+		Peak Reduce Virtual memory (bytes)=7224598528
+	Shuffle Errors
+		BAD_ID=0
+		CONNECTION=0
+		IO_ERROR=0
+		WRONG_LENGTH=0
+		WRONG_MAP=0
+		WRONG_REDUCE=0
+	File Input Format Counters 
+		Bytes Read=3124633
+	File Output Format Counters 
+		Bytes Written=177
+2026-11-10 07:35:22,253 INFO streaming.StreamJob: Output directory: /project/audit/price_row_audit
+
+[exit 0]
+
+$ hive -f task2/hive/01_register.sql
+Hive Session ID = cad73e95-f484-454e-aa2c-aa5c83270a1d
+
+Logging initialized using configuration in file:/etc/hive/conf.dist/hive-log4j2.properties Async: true
+OK
+Time taken: 0.817 seconds
+OK
+Time taken: 0.064 seconds
+OK
+Time taken: 0.017 seconds
+OK
+Time taken: 0.012 seconds
+OK
+Time taken: 0.023 seconds
+OK
+Time taken: 0.019 seconds
+OK
+Time taken: 0.018 seconds
+OK
+Time taken: 0.018 seconds
+
+[exit 0]
+
+$ spark-submit --conf spark.sql.shuffle.partitions=200 --py-files task2/lib/rules.py,task2/lib/weekly.py task2/spark/prepare_features.py /project/raw/prices/all_stocks_5yr_sample.csv /project/prepared
+vol_52w_training_median 0.014371104703700274
+26/11/10 07:35:37 INFO EMRParamSideChannel: Setting FGAC mode to false
+26/11/10 07:35:37 INFO SparkContext: Running Spark version 3.5.5-amzn-1
+26/11/10 07:35:37 INFO SparkContext: OS info Linux, 6.1.189-236.400.amzn2023.x86_64, amd64
+26/11/10 07:35:37 INFO SparkContext: Java version 17.0.21
+26/11/10 07:35:37 INFO ResourceUtils: ==============================================================
+26/11/10 07:35:37 INFO ResourceUtils: No custom resources configured for spark.driver.
+26/11/10 07:35:37 INFO ResourceUtils: ==============================================================
+26/11/10 07:35:37 INFO SparkContext: Submitted application: task2-weekly-features
+26/11/10 07:35:37 INFO ResourceProfile: Default ResourceProfile created, executor resources: Map(cores -> name: cores, amount: 2, script: , vendor: , offHeap -> name: offHeap, amount: 0, script: , vendor: , memoryOverhead -> name: memoryOverhead, amount: 2048, script: , vendor: , executorType -> name: executorType, amount: 1, script: , vendor: , memory -> name: memory, amount: 6144, script: , vendor: ), task resources: Map(cpus -> name: cpus, amount: 1.0)
+26/11/10 07:35:37 INFO ResourceProfile: Limiting resource is cpus at 2 tasks per executor
+26/11/10 07:35:37 INFO ResourceProfileManager: Added ResourceProfile id: 0
+26/11/10 07:35:37 INFO ResourceProfile: User executor ResourceProfile created, executor resources: Map(cores -> name: cores, amount: 2, script: , vendor: , offHeap -> name: offHeap, amount: 0, script: , vendor: , memoryOverhead -> name: memoryOverhead, amount: 2048, script: , vendor: , executorType -> name: executorType, amount: 1, script: , vendor: , memory -> name: memory, amount: 6144, script: , vendor: ), task resources: Map(cpus -> name: cpus, amount: 1.0)
+26/11/10 07:35:37 INFO ResourceProfile: Limiting resource is cpus at 2 tasks per executor
+26/11/10 07:35:37 INFO ResourceProfileManager: Added ResourceProfile id: 1
+26/11/10 07:35:37 INFO SecurityManager: Changing view acls to: hadoop
+26/11/10 07:35:37 INFO SecurityManager: Changing modify acls to: hadoop
+26/11/10 07:35:37 INFO SecurityManager: Changing view acls groups to: 
+26/11/10 07:35:37 INFO SecurityManager: Changing modify acls groups to: 
+26/11/10 07:35:37 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users with view permissions: hadoop; groups with view permissions: EMPTY; users with modify permissions: hadoop; groups with modify permissions: EMPTY
+26/11/10 07:35:38 INFO Utils: Successfully started service 'sparkDriver' on port 41095.
+26/11/10 07:35:38 INFO SparkEnv: Registering MapOutputTracker
+26/11/10 07:35:38 INFO SparkEnv: Registering BlockManagerMaster
+26/11/10 07:35:38 INFO BlockManagerMasterEndpoint: Using org.apache.spark.storage.DefaultTopologyMapper for getting topology information
+26/11/10 07:35:38 INFO BlockManagerMasterEndpoint: BlockManagerMasterEndpoint up
+26/11/10 07:35:38 INFO SparkEnv: Registering BlockManagerMasterHeartbeat
+26/11/10 07:35:38 INFO DiskBlockManager: Created local directory at /mnt/tmp/blockmgr-b9f2d993-b7d6-415c-9507-7c870486c55b
+26/11/10 07:35:38 INFO MemoryStore: MemoryStore started with capacity 1048.8 MiB
+26/11/10 07:35:38 INFO SparkEnv: Registering OutputCommitCoordinator
+26/11/10 07:35:38 INFO SubResultCacheManager: Sub-result caches are disabled.
+26/11/10 07:35:38 INFO JettyUtils: Start Jetty 0.0.0.0:4040 for SparkUI
+26/11/10 07:35:38 INFO Utils: Successfully started service 'SparkUI' on port 4040.
+26/11/10 07:35:38 INFO DefaultNoHARMFailoverProxyProvider: Connecting to ResourceManager at ip-172-31-15-156.ec2.internal/172.31.15.156:8032
+26/11/10 07:35:39 INFO Configuration: resource-types.xml not found
+26/11/10 07:35:39 INFO ResourceUtils: Unable to find 'resource-types.xml'.
+26/11/10 07:35:39 INFO Client: Verifying our application has not requested more than the maximum memory capability of the cluster (12288 MB per container)
+26/11/10 07:35:39 INFO Client: Will allocate AM container, with 896 MB memory including 384 MB overhead
+26/11/10 07:35:39 INFO Client: Setting up container launch context for our AM
+26/11/10 07:35:39 INFO Client: Setting up the launch environment for our AM container
+26/11/10 07:35:39 INFO Client: Preparing resources for our AM container
+26/11/10 07:35:39 WARN Client: Neither spark.yarn.jars nor spark.yarn.archive is set, falling back to uploading libraries under SPARK_HOME.
+26/11/10 07:35:41 INFO Client: Uploading resource file:/mnt/tmp/spark-a5b865bf-8b44-4082-898d-83fc85c788ba/__spark_libs__8019561968429448281.zip -> hdfs://ip-172-31-15-156.ec2.internal:8020/user/hadoop/.sparkStaging/application_1794292319670_0009/__spark_libs__8019561968429448281.zip
+26/11/10 07:35:41 INFO Client: Uploading resource file:/etc/spark/conf.dist/hive-site.xml -> hdfs://ip-172-31-15-156.ec2.internal:8020/user/hadoop/.sparkStaging/application_1794292319670_0009/hive-site.xml
+26/11/10 07:35:42 INFO Client: Uploading resource file:/etc/hudi/conf.dist/hudi-defaults.conf -> hdfs://ip-172-31-15-156.ec2.internal:8020/user/hadoop/.sparkStaging/application_1794292319670_0009/hudi-defaults.conf
+26/11/10 07:35:42 INFO Client: Uploading resource file:/usr/lib/spark/python/lib/pyspark.zip -> hdfs://ip-172-31-15-156.ec2.internal:8020/user/hadoop/.sparkStaging/application_1794292319670_0009/pyspark.zip
+26/11/10 07:35:42 INFO Client: Uploading resource file:/usr/lib/spark/python/lib/py4j-0.10.9.7-src.zip -> hdfs://ip-172-31-15-156.ec2.internal:8020/user/hadoop/.sparkStaging/application_1794292319670_0009/py4j-0.10.9.7-src.zip
+26/11/10 07:35:42 INFO Client: Uploading resource file:/home/hadoop/project/task2/lib/rules.py -> hdfs://ip-172-31-15-156.ec2.internal:8020/user/hadoop/.sparkStaging/application_1794292319670_0009/rules.py
+26/11/10 07:35:42 INFO Client: Uploading resource file:/home/hadoop/project/task2/lib/weekly.py -> hdfs://ip-172-31-15-156.ec2.internal:8020/user/hadoop/.sparkStaging/application_1794292319670_0009/weekly.py
+26/11/10 07:35:42 INFO Client: Uploading resource file:/mnt/tmp/spark-a5b865bf-8b44-4082-898d-83fc85c788ba/__spark_conf__16565434108702257130.zip -> hdfs://ip-172-31-15-156.ec2.internal:8020/user/hadoop/.sparkStaging/application_1794292319670_0009/__spark_conf__.zip
+26/11/10 07:35:42 INFO SecurityManager: Changing view acls to: hadoop
+26/11/10 07:35:42 INFO SecurityManager: Changing modify acls to: hadoop
+26/11/10 07:35:42 INFO SecurityManager: Changing view acls groups to: 
+26/11/10 07:35:42 INFO SecurityManager: Changing modify acls groups to: 
+26/11/10 07:35:42 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users with view permissions: hadoop; groups with view permissions: EMPTY; users with modify permissions: hadoop; groups with modify permissions: EMPTY
+26/11/10 07:35:42 INFO Client: Submitting application application_1794292319670_0009 to ResourceManager
+26/11/10 07:35:42 INFO YarnClientImpl: Submitted application application_1794292319670_0009
+26/11/10 07:35:43 INFO Client: Application report for application_1794292319670_0009 (state: ACCEPTED)
+26/11/10 07:35:43 INFO Client: 
+	 client token: N/A
+	 diagnostics: AM container is launched, waiting for AM container to Register with RM
+	 ApplicationMaster host: N/A
+	 ApplicationMaster RPC port: -1
+	 queue: root.default
+	 start time: 1794296142377
+	 final status: UNDEFINED
+	 tracking URL: http://ip-172-31-15-156.ec2.internal:20888/proxy/application_1794292319670_0009/
+	 user: hadoop
+26/11/10 07:35:47 INFO YarnClientSchedulerBackend: Add WebUI Filter. org.apache.hadoop.yarn.server.webproxy.amfilter.AmIpFilter, Map(PROXY_HOSTS -> ip-172-31-15-156.ec2.internal, PROXY_URI_BASES -> http://ip-172-31-15-156.ec2.internal:20888/proxy/application_1794292319670_0009), /proxy/application_1794292319670_0009
+26/11/10 07:35:47 INFO Client: Application report for application_1794292319670_0009 (state: RUNNING)
+26/11/10 07:35:47 INFO Client: 
+	 client token: N/A
+	 diagnostics: N/A
+	 ApplicationMaster host: 172.31.8.141
+	 ApplicationMaster RPC port: -1
+	 queue: root.default
+	 start time: 1794296142377
+	 final status: UNDEFINED
+	 tracking URL: http://ip-172-31-15-156.ec2.internal:20888/proxy/application_1794292319670_0009/
+	 user: hadoop
+26/11/10 07:35:47 INFO YarnClientSchedulerBackend: Application application_1794292319670_0009 has started running.
+26/11/10 07:35:47 INFO Utils: Successfully started service 'org.apache.spark.network.netty.NettyBlockTransferService' on port 38627.
+26/11/10 07:35:47 INFO NettyBlockTransferService: Server created on ip-172-31-15-156.ec2.internal:38627
+26/11/10 07:35:47 INFO BlockManager: Using org.apache.spark.storage.RandomBlockReplicationPolicy for block replication policy
+26/11/10 07:35:47 INFO BlockManager: external shuffle service port = 7337
+26/11/10 07:35:47 INFO BlockManagerMaster: Registering BlockManager BlockManagerId(driver, ip-172-31-15-156.ec2.internal, 38627, None)
+26/11/10 07:35:47 INFO BlockManagerMasterEndpoint: Registering block manager ip-172-31-15-156.ec2.internal:38627 with 1048.8 MiB RAM, BlockManagerId(driver, ip-172-31-15-156.ec2.internal, 38627, None)
+26/11/10 07:35:47 INFO BlockManagerMaster: Registered BlockManager BlockManagerId(driver, ip-172-31-15-156.ec2.internal, 38627, None)
+26/11/10 07:35:47 INFO BlockManager: Initialized BlockManager: BlockManagerId(driver, ip-172-31-15-156.ec2.internal, 38627, None)
+26/11/10 07:35:47 INFO YarnSchedulerBackend$YarnSchedulerEndpoint: ApplicationMaster registered as NettyRpcEndpointRef(spark-client://YarnAM)
+26/11/10 07:35:47 INFO SingleEventLogFileWriter: Logging events to hdfs:/var/log/spark/apps/application_1794292319670_0009.inprogress
+26/11/10 07:35:47 INFO ServerInfo: Adding filter to /jobs: org.apache.hadoop.yarn.server.webproxy.amfilter.AmIpFilter
+26/11/10 07:35:47 INFO ServerInfo: Adding filter to /jobs/json: org.apache.hadoop.yarn.server.webproxy.amfilter.AmIpFilter
+26/11/10 07:35:47 INFO ServerInfo: Adding filter to /jobs/job: org.apache.hadoop.yarn.server.webproxy.amfilter.AmIpFilter
+26/11/10 07:35:47 INFO ServerInfo: Adding filter to /jobs/job/json: org.apache.hadoop.yarn.server.webproxy.amfilter.AmIpFilter
+26/11/10 07:35:47 INFO ServerInfo: Adding filter to /stages: org.apache.hadoop.yarn.server.webproxy.amfilter.AmIpFilter
+26/11/10 07:35:47 INFO ServerInfo: Adding filter to /stages/json: org.apache.hadoop.yarn.server.webproxy.amfilter.AmIpFilter
+26/11/10 07:35:47 INFO ServerInfo: Adding filter to /stages/stage: org.apache.hadoop.yarn.server.webproxy.amfilter.AmIpFilter
+26/11/10 07:35:47 INFO ServerInfo: Adding filter to /stages/stage/json: org.apache.hadoop.yarn.server.webproxy.amfilter.AmIpFilter
+26/11/10 07:35:47 INFO ServerInfo: Adding filter to /stages/pool: org.apache.hadoop.yarn.server.webproxy.amfilter.AmIpFilter
+26/11/10 07:35:47 INFO ServerInfo: Adding filter to /stages/pool/json: org.apache.hadoop.yarn.server.webproxy.amfilter.AmIpFilter
+26/11/10 07:35:47 INFO ServerInfo: Adding filter to /storage: org.apache.hadoop.yarn.server.webproxy.amfilter.AmIpFilter
+26/11/10 07:35:47 INFO ServerInfo: Adding filter to /storage/json: org.apache.hadoop.yarn.server.webproxy.amfilter.AmIpFilter
+26/11/10 07:35:47 INFO ServerInfo: Adding filter to /storage/rdd: org.apache.hadoop.yarn.server.webproxy.amfilter.AmIpFilter
+26/11/10 07:35:47 INFO ServerInfo: Adding filter to /storage/rdd/json: org.apache.hadoop.yarn.server.webproxy.amfilter.AmIpFilter
+26/11/10 07:35:47 INFO ServerInfo: Adding filter to /environment: org.apache.hadoop.yarn.server.webproxy.amfilter.AmIpFilter
+26/11/10 07:35:47 INFO ServerInfo: Adding filter to /environment/json: org.apache.hadoop.yarn.server.webproxy.amfilter.AmIpFilter
+26/11/10 07:35:47 INFO ServerInfo: Adding filter to /executors: org.apache.hadoop.yarn.server.webproxy.amfilter.AmIpFilter
+26/11/10 07:35:47 INFO ServerInfo: Adding filter to /executors/json: org.apache.hadoop.yarn.server.webproxy.amfilter.AmIpFilter
+26/11/10 07:35:47 INFO ServerInfo: Adding filter to /executors/threadDump: org.apache.hadoop.yarn.server.webproxy.amfilter.AmIpFilter
+26/11/10 07:35:47 INFO ServerInfo: Adding filter to /executors/threadDump/json: org.apache.hadoop.yarn.server.webproxy.amfilter.AmIpFilter
+26/11/10 07:35:47 INFO ServerInfo: Adding filter to /executors/heapHistogram: org.apache.hadoop.yarn.server.webproxy.amfilter.AmIpFilter
+26/11/10 07:35:47 INFO ServerInfo: Adding filter to /executors/heapHistogram/json: org.apache.hadoop.yarn.server.webproxy.amfilter.AmIpFilter
+26/11/10 07:35:47 INFO ServerInfo: Adding filter to /static: org.apache.hadoop.yarn.server.webproxy.amfilter.AmIpFilter
+26/11/10 07:35:47 INFO ServerInfo: Adding filter to /: org.apache.hadoop.yarn.server.webproxy.amfilter.AmIpFilter
+26/11/10 07:35:47 INFO ServerInfo: Adding filter to /api: org.apache.hadoop.yarn.server.webproxy.amfilter.AmIpFilter
+26/11/10 07:35:47 INFO ServerInfo: Adding filter to /jobs/job/kill: org.apache.hadoop.yarn.server.webproxy.amfilter.AmIpFilter
+26/11/10 07:35:47 INFO ServerInfo: Adding filter to /stages/stage/kill: org.apache.hadoop.yarn.server.webproxy.amfilter.AmIpFilter
+26/11/10 07:35:47 INFO ServerInfo: Adding filter to /metrics/json: org.apache.hadoop.yarn.server.webproxy.amfilter.AmIpFilter
+26/11/10 07:35:47 INFO YarnClientSchedulerBackend: SchedulerBackend is ready for scheduling beginning after reached minRegisteredResourcesRatio: 0.0
+26/11/10 07:35:48 INFO MemoryStore: Block broadcast_0 stored as values in memory (estimated size 265.6 KiB, free 1048.5 MiB)
+26/11/10 07:35:48 INFO MemoryStore: Block broadcast_0_piece0 stored as bytes in memory (estimated size 42.9 KiB, actual size: 42.9 KiB, free 1048.5 MiB)
+26/11/10 07:35:48 INFO BlockManagerInfo: Added broadcast_0_piece0 in memory on ip-172-31-15-156.ec2.internal:38627 (size: 42.9 KiB, free: 1048.8 MiB)
+26/11/10 07:35:48 INFO SparkContext: Created broadcast 0 from textFile at NativeMethodAccessorImpl.java:0
+26/11/10 07:35:49 INFO GPLNativeCodeLoader: Loaded native gpl library
+26/11/10 07:35:49 INFO LzoCodec: Successfully loaded & initialized native-lzo library [hadoop-lzo rev 049362b7cf53ff5f739d6b1532457f2c6cd495e8]
+26/11/10 07:35:49 INFO FileInputFormat: Total input files to process : 1
+26/11/10 07:35:49 INFO SparkContext: Starting job: runJob at PythonRDD.scala:191
+26/11/10 07:35:49 INFO DAGScheduler: Got job 0 (runJob at PythonRDD.scala:191) with 1 output partitions
+26/11/10 07:35:49 INFO DAGScheduler: Final stage: ResultStage 0 (runJob at PythonRDD.scala:191)
+26/11/10 07:35:49 INFO DAGScheduler: Parents of final stage: List()
+26/11/10 07:35:49 INFO DAGScheduler: Missing parents: List()
+26/11/10 07:35:49 INFO DAGScheduler: Submitting ResultStage 0 (PythonRDD[2] at RDD at PythonRDD.scala:55), which has no missing parents
+26/11/10 07:35:49 INFO MemoryStore: Block broadcast_1 stored as values in memory (estimated size 10.4 KiB, free 1048.5 MiB)
+26/11/10 07:35:49 INFO MemoryStore: Block broadcast_1_piece0 stored as bytes in memory (estimated size 6.3 KiB, actual size: 6.3 KiB, free 1048.5 MiB)
+26/11/10 07:35:49 INFO BlockManagerInfo: Added broadcast_1_piece0 in memory on ip-172-31-15-156.ec2.internal:38627 (size: 6.3 KiB, free: 1048.8 MiB)
+26/11/10 07:35:49 INFO SparkContext: Created broadcast 1 from broadcast at DAGScheduler.scala:1664
+26/11/10 07:35:49 INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 0 (PythonRDD[2] at RDD at PythonRDD.scala:55) (first 15 tasks are for partitions Vector(0))
+26/11/10 07:35:49 INFO YarnScheduler: Adding task set 0.0 with 1 tasks resource profile 0
+26/11/10 07:35:50 INFO YarnSchedulerBackend$YarnDriverEndpoint: Registered executor NettyRpcEndpointRef(spark-client://Executor) (172.31.8.141:45224) with ID 1,  ResourceProfileId 0
+26/11/10 07:35:50 INFO BlockManagerMasterEndpoint: Registering block manager ip-172-31-8-141.ec2.internal:37019 with 3.0 GiB RAM, BlockManagerId(1, ip-172-31-8-141.ec2.internal, 37019, None)
+26/11/10 07:35:50 INFO TaskSetManager: Starting task 0.0 in stage 0.0 (TID 0) (ip-172-31-8-141.ec2.internal, executor 1, partition 0, NODE_LOCAL, 9261 bytes) 
+26/11/10 07:35:51 INFO BlockManagerInfo: Added broadcast_1_piece0 in memory on ip-172-31-8-141.ec2.internal:37019 (size: 6.3 KiB, free: 3.0 GiB)
+26/11/10 07:35:51 INFO BlockManagerInfo: Added broadcast_0_piece0 in memory on ip-172-31-8-141.ec2.internal:37019 (size: 42.9 KiB, free: 3.0 GiB)
+26/11/10 07:35:52 INFO YarnSchedulerBackend$YarnDriverEndpoint: Registered executor NettyRpcEndpointRef(spark-client://Executor) (172.31.14.235:50534) with ID 2,  ResourceProfileId 0
+26/11/10 07:35:52 INFO BlockManagerMasterEndpoint: Registering block manager ip-172-31-14-235.ec2.internal:41423 with 3.0 GiB RAM, BlockManagerId(2, ip-172-31-14-235.ec2.internal, 41423, None)
+26/11/10 07:35:52 INFO TaskSetManager: Finished task 0.0 in stage 0.0 (TID 0) in 1993 ms on ip-172-31-8-141.ec2.internal (executor 1) (1/1)
+26/11/10 07:35:52 INFO YarnScheduler: Removed TaskSet 0.0, whose tasks have all completed, from pool 
+26/11/10 07:35:52 INFO PythonAccumulatorV2: Connected to AccumulatorServer at host: 127.0.0.1 port: 50101
+26/11/10 07:35:52 INFO DAGScheduler: ResultStage 0 (runJob at PythonRDD.scala:191) finished in 3.299 s
+26/11/10 07:35:52 INFO DAGScheduler: Job 0 is finished. Cancelling potential speculative or zombie tasks for this job
+26/11/10 07:35:52 INFO YarnScheduler: Killing all running tasks in stage 0: Stage finished
+26/11/10 07:35:52 INFO DAGScheduler: Job 0 finished: runJob at PythonRDD.scala:191, took 3.357045 s
+26/11/10 07:35:52 INFO SharedState: Setting hive.metastore.warehouse.dir ('null') to the value of spark.sql.warehouse.dir.
+26/11/10 07:35:52 INFO SharedState: Warehouse path is 'hdfs://ip-172-31-15-156.ec2.internal:8020/user/spark/warehouse'.
+26/11/10 07:35:52 INFO ServerInfo: Adding filter to /SQL: org.apache.hadoop.yarn.server.webproxy.amfilter.AmIpFilter
+26/11/10 07:35:52 INFO ServerInfo: Adding filter to /SQL/json: org.apache.hadoop.yarn.server.webproxy.amfilter.AmIpFilter
+26/11/10 07:35:52 INFO ServerInfo: Adding filter to /SQL/execution: org.apache.hadoop.yarn.server.webproxy.amfilter.AmIpFilter
+26/11/10 07:35:52 INFO ServerInfo: Adding filter to /SQL/execution/json: org.apache.hadoop.yarn.server.webproxy.amfilter.AmIpFilter
+26/11/10 07:35:52 INFO ServerInfo: Adding filter to /static/sql: org.apache.hadoop.yarn.server.webproxy.amfilter.AmIpFilter
+26/11/10 07:35:53 INFO BlockManagerInfo: Removed broadcast_1_piece0 on ip-172-31-15-156.ec2.internal:38627 in memory (size: 6.3 KiB, free: 1048.8 MiB)
+26/11/10 07:35:53 INFO BlockManagerInfo: Removed broadcast_1_piece0 on ip-172-31-8-141.ec2.internal:37019 in memory (size: 6.3 KiB, free: 3.0 GiB)
+26/11/10 07:35:55 INFO ParquetUtils: Using user defined output committer for Parquet: com.amazon.emr.committer.EmrOptimizedSparkSqlParquetOutputCommitter
+26/11/10 07:35:55 INFO SQLConfCommitterProvider: Getting user defined output committer class com.amazon.emr.committer.EmrOptimizedSparkSqlParquetOutputCommitter
+26/11/10 07:35:55 INFO EmrOptimizedParquetOutputCommitter: EMR Optimized committer is not supported by this filesystem (org.apache.hadoop.hdfs.DistributedFileSystem)
+26/11/10 07:35:55 INFO EmrOptimizedParquetOutputCommitter: Using output committer class org.apache.hadoop.mapreduce.lib.output.FileOutputCommitter
+26/11/10 07:35:55 INFO FileOutputCommitter: File Output Committer Algorithm version is 2
+26/11/10 07:35:55 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+26/11/10 07:35:55 INFO FileOutputCommitter: File Output Committer Algorithm version is 2
+26/11/10 07:35:55 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+26/11/10 07:35:55 INFO SQLConfCommitterProvider: Using output committer class com.amazon.emr.committer.EmrOptimizedSparkSqlParquetOutputCommitter
+26/11/10 07:35:55 INFO CodeGenerator: Code generated in 237.421718 ms
+26/11/10 07:35:55 INFO SparkContext: Starting job: parquet at NativeMethodAccessorImpl.java:0
+26/11/10 07:35:55 INFO DAGScheduler: Got job 1 (parquet at NativeMethodAccessorImpl.java:0) with 2 output partitions
+26/11/10 07:35:55 INFO DAGScheduler: Final stage: ResultStage 1 (parquet at NativeMethodAccessorImpl.java:0)
+26/11/10 07:35:55 INFO DAGScheduler: Parents of final stage: List()
+26/11/10 07:35:55 INFO DAGScheduler: Missing parents: List()
+26/11/10 07:35:55 INFO DAGScheduler: Submitting ResultStage 1 (MapPartitionsRDD[8] at parquet at NativeMethodAccessorImpl.java:0), which has no missing parents
+26/11/10 07:35:55 INFO MemoryStore: Block broadcast_2 stored as values in memory (estimated size 319.5 KiB, free 1048.2 MiB)
+26/11/10 07:35:55 INFO MemoryStore: Block broadcast_2_piece0 stored as bytes in memory (estimated size 119.4 KiB, actual size: 119.4 KiB, free 1048.1 MiB)
+26/11/10 07:35:55 INFO BlockManagerInfo: Added broadcast_2_piece0 in memory on ip-172-31-15-156.ec2.internal:38627 (size: 119.4 KiB, free: 1048.6 MiB)
+26/11/10 07:35:55 INFO SparkContext: Created broadcast 2 from broadcast at DAGScheduler.scala:1664
+26/11/10 07:35:55 INFO DAGScheduler: Submitting 2 missing tasks from ResultStage 1 (MapPartitionsRDD[8] at parquet at NativeMethodAccessorImpl.java:0) (first 15 tasks are for partitions Vector(0, 1))
+26/11/10 07:35:55 INFO YarnScheduler: Adding task set 1.0 with 2 tasks resource profile 0
+26/11/10 07:35:55 INFO TaskSetManager: Starting task 0.0 in stage 1.0 (TID 1) (ip-172-31-14-235.ec2.internal, executor 2, partition 0, NODE_LOCAL, 9261 bytes) 
+26/11/10 07:35:55 INFO TaskSetManager: Starting task 1.0 in stage 1.0 (TID 2) (ip-172-31-8-141.ec2.internal, executor 1, partition 1, NODE_LOCAL, 9261 bytes) 
+26/11/10 07:35:55 INFO BlockManagerInfo: Added broadcast_2_piece0 in memory on ip-172-31-8-141.ec2.internal:37019 (size: 119.4 KiB, free: 3.0 GiB)
+26/11/10 07:35:55 INFO BlockManagerInfo: Added broadcast_2_piece0 in memory on ip-172-31-14-235.ec2.internal:41423 (size: 119.4 KiB, free: 3.0 GiB)
+26/11/10 07:35:56 INFO BlockManagerInfo: Added broadcast_0_piece0 in memory on ip-172-31-14-235.ec2.internal:41423 (size: 42.9 KiB, free: 3.0 GiB)
+26/11/10 07:35:57 INFO TaskSetManager: Finished task 1.0 in stage 1.0 (TID 2) in 1829 ms on ip-172-31-8-141.ec2.internal (executor 1) (1/2)
+26/11/10 07:35:58 INFO TaskSetManager: Finished task 0.0 in stage 1.0 (TID 1) in 3479 ms on ip-172-31-14-235.ec2.internal (executor 2) (2/2)
+26/11/10 07:35:58 INFO YarnScheduler: Removed TaskSet 1.0, whose tasks have all completed, from pool 
+26/11/10 07:35:58 INFO DAGScheduler: ResultStage 1 (parquet at NativeMethodAccessorImpl.java:0) finished in 3.530 s
+26/11/10 07:35:58 INFO DAGScheduler: Job 1 is finished. Cancelling potential speculative or zombie tasks for this job
+26/11/10 07:35:58 INFO YarnScheduler: Killing all running tasks in stage 1: Stage finished
+26/11/10 07:35:58 INFO DAGScheduler: Job 1 finished: parquet at NativeMethodAccessorImpl.java:0, took 3.540609 s
+26/11/10 07:35:58 INFO FileFormatWriter: Start to commit write Job f75cff68-41be-4cbc-aab0-9528165b8e8f.
+26/11/10 07:35:58 INFO FileFormatWriter: Write Job f75cff68-41be-4cbc-aab0-9528165b8e8f committed. Elapsed time: 15 ms.
+26/11/10 07:35:59 INFO FileFormatWriter: Finished processing stats for write job f75cff68-41be-4cbc-aab0-9528165b8e8f.
+26/11/10 07:35:59 INFO SQLExecution: Generating and posting SparkListenerSQLExecutionObfuscatedInfo...
+26/11/10 07:35:59 INFO SQLExecution: Posted SparkListenerSQLExecutionObfuscatedInfo in 4 ms
+26/11/10 07:35:59 INFO ParquetUtils: Using user defined output committer for Parquet: com.amazon.emr.committer.EmrOptimizedSparkSqlParquetOutputCommitter
+26/11/10 07:35:59 INFO SQLConfCommitterProvider: Getting user defined output committer class com.amazon.emr.committer.EmrOptimizedSparkSqlParquetOutputCommitter
+26/11/10 07:35:59 INFO EmrOptimizedParquetOutputCommitter: EMR Optimized committer is not supported by this filesystem (org.apache.hadoop.hdfs.DistributedFileSystem)
+26/11/10 07:35:59 INFO EmrOptimizedParquetOutputCommitter: Using output committer class org.apache.hadoop.mapreduce.lib.output.FileOutputCommitter
+26/11/10 07:35:59 INFO FileOutputCommitter: File Output Committer Algorithm version is 2
+26/11/10 07:35:59 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+26/11/10 07:35:59 INFO FileOutputCommitter: File Output Committer Algorithm version is 2
+26/11/10 07:35:59 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+26/11/10 07:35:59 INFO SQLConfCommitterProvider: Using output committer class com.amazon.emr.committer.EmrOptimizedSparkSqlParquetOutputCommitter
+26/11/10 07:35:59 INFO SparkContext: Starting job: parquet at NativeMethodAccessorImpl.java:0
+26/11/10 07:35:59 INFO DAGScheduler: Got job 2 (parquet at NativeMethodAccessorImpl.java:0) with 2 output partitions
+26/11/10 07:35:59 INFO DAGScheduler: Final stage: ResultStage 2 (parquet at NativeMethodAccessorImpl.java:0)
+26/11/10 07:35:59 INFO DAGScheduler: Parents of final stage: List()
+26/11/10 07:35:59 INFO DAGScheduler: Missing parents: List()
+26/11/10 07:35:59 INFO DAGScheduler: Submitting ResultStage 2 (MapPartitionsRDD[10] at parquet at NativeMethodAccessorImpl.java:0), which has no missing parents
+26/11/10 07:35:59 INFO MemoryStore: Block broadcast_3 stored as values in memory (estimated size 319.5 KiB, free 1047.8 MiB)
+26/11/10 07:35:59 INFO MemoryStore: Block broadcast_3_piece0 stored as bytes in memory (estimated size 119.4 KiB, actual size: 119.4 KiB, free 1047.6 MiB)
+26/11/10 07:35:59 INFO BlockManagerInfo: Added broadcast_3_piece0 in memory on ip-172-31-15-156.ec2.internal:38627 (size: 119.4 KiB, free: 1048.5 MiB)
+26/11/10 07:35:59 INFO SparkContext: Created broadcast 3 from broadcast at DAGScheduler.scala:1664
+26/11/10 07:35:59 INFO DAGScheduler: Submitting 2 missing tasks from ResultStage 2 (MapPartitionsRDD[10] at parquet at NativeMethodAccessorImpl.java:0) (first 15 tasks are for partitions Vector(0, 1))
+26/11/10 07:35:59 INFO YarnScheduler: Adding task set 2.0 with 2 tasks resource profile 0
+26/11/10 07:35:59 INFO TaskSetManager: Starting task 0.0 in stage 2.0 (TID 3) (ip-172-31-14-235.ec2.internal, executor 2, partition 0, NODE_LOCAL, 9261 bytes) 
+26/11/10 07:35:59 INFO TaskSetManager: Starting task 1.0 in stage 2.0 (TID 4) (ip-172-31-8-141.ec2.internal, executor 1, partition 1, NODE_LOCAL, 9261 bytes) 
+26/11/10 07:35:59 INFO BlockManagerInfo: Added broadcast_3_piece0 in memory on ip-172-31-8-141.ec2.internal:37019 (size: 119.4 KiB, free: 3.0 GiB)
+26/11/10 07:35:59 INFO BlockManagerInfo: Added broadcast_3_piece0 in memory on ip-172-31-14-235.ec2.internal:41423 (size: 119.4 KiB, free: 3.0 GiB)
+26/11/10 07:36:00 INFO TaskSetManager: Finished task 1.0 in stage 2.0 (TID 4) in 1120 ms on ip-172-31-8-141.ec2.internal (executor 1) (1/2)
+26/11/10 07:36:00 INFO TaskSetManager: Finished task 0.0 in stage 2.0 (TID 3) in 1239 ms on ip-172-31-14-235.ec2.internal (executor 2) (2/2)
+26/11/10 07:36:00 INFO YarnScheduler: Removed TaskSet 2.0, whose tasks have all completed, from pool 
+26/11/10 07:36:00 INFO DAGScheduler: ResultStage 2 (parquet at NativeMethodAccessorImpl.java:0) finished in 1.290 s
+26/11/10 07:36:00 INFO DAGScheduler: Job 2 is finished. Cancelling potential speculative or zombie tasks for this job
+26/11/10 07:36:00 INFO YarnScheduler: Killing all running tasks in stage 2: Stage finished
+26/11/10 07:36:00 INFO DAGScheduler: Job 2 finished: parquet at NativeMethodAccessorImpl.java:0, took 1.296192 s
+26/11/10 07:36:00 INFO FileFormatWriter: Start to commit write Job 781e714a-036a-4a12-ac12-2d4e9d83075d.
+26/11/10 07:36:00 INFO FileFormatWriter: Write Job 781e714a-036a-4a12-ac12-2d4e9d83075d committed. Elapsed time: 9 ms.
+26/11/10 07:36:00 INFO FileFormatWriter: Finished processing stats for write job 781e714a-036a-4a12-ac12-2d4e9d83075d.
+26/11/10 07:36:00 INFO SQLExecution: Generating and posting SparkListenerSQLExecutionObfuscatedInfo...
+26/11/10 07:36:00 INFO SQLExecution: Posted SparkListenerSQLExecutionObfuscatedInfo in 1 ms
+26/11/10 07:36:00 INFO CodeGenerator: Code generated in 37.224046 ms
+26/11/10 07:36:00 INFO SparkContext: Starting job: collect at /home/hadoop/project/task2/spark/prepare_features.py:84
+26/11/10 07:36:00 INFO DAGScheduler: Registering RDD 16 (groupByKey at /home/hadoop/project/task2/spark/prepare_features.py:75) as input to shuffle 0
+26/11/10 07:36:00 INFO DAGScheduler: Got job 3 (collect at /home/hadoop/project/task2/spark/prepare_features.py:84) with 2 output partitions
+26/11/10 07:36:00 INFO DAGScheduler: Final stage: ResultStage 4 (collect at /home/hadoop/project/task2/spark/prepare_features.py:84)
+26/11/10 07:36:00 INFO DAGScheduler: Parents of final stage: List(ShuffleMapStage 3)
+26/11/10 07:36:00 INFO DAGScheduler: Missing parents: List(ShuffleMapStage 3)
+26/11/10 07:36:00 INFO DAGScheduler: Submitting ShuffleMapStage 3 (PairwiseRDD[16] at groupByKey at /home/hadoop/project/task2/spark/prepare_features.py:75), which has no missing parents
+26/11/10 07:36:00 INFO MemoryStore: Block broadcast_4 stored as values in memory (estimated size 46.9 KiB, free 1047.6 MiB)
+26/11/10 07:36:00 INFO MemoryStore: Block broadcast_4_piece0 stored as bytes in memory (estimated size 22.2 KiB, actual size: 22.2 KiB, free 1047.6 MiB)
+26/11/10 07:36:00 INFO BlockManagerInfo: Added broadcast_4_piece0 in memory on ip-172-31-15-156.ec2.internal:38627 (size: 22.2 KiB, free: 1048.5 MiB)
+26/11/10 07:36:00 INFO SparkContext: Created broadcast 4 from broadcast at DAGScheduler.scala:1664
+26/11/10 07:36:00 INFO DAGScheduler: Submitting 2 missing tasks from ShuffleMapStage 3 (PairwiseRDD[16] at groupByKey at /home/hadoop/project/task2/spark/prepare_features.py:75) (first 15 tasks are for partitions Vector(0, 1))
+26/11/10 07:36:00 INFO YarnScheduler: Adding task set 3.0 with 2 tasks resource profile 0
+26/11/10 07:36:00 INFO TaskSetManager: Starting task 0.0 in stage 3.0 (TID 5) (ip-172-31-8-141.ec2.internal, executor 1, partition 0, NODE_LOCAL, 9250 bytes) 
+26/11/10 07:36:00 INFO TaskSetManager: Starting task 1.0 in stage 3.0 (TID 6) (ip-172-31-14-235.ec2.internal, executor 2, partition 1, NODE_LOCAL, 9250 bytes) 
+26/11/10 07:36:00 INFO BlockManagerInfo: Added broadcast_4_piece0 in memory on ip-172-31-14-235.ec2.internal:41423 (size: 22.2 KiB, free: 3.0 GiB)
+26/11/10 07:36:00 INFO BlockManagerInfo: Added broadcast_4_piece0 in memory on ip-172-31-8-141.ec2.internal:37019 (size: 22.2 KiB, free: 3.0 GiB)
+26/11/10 07:36:02 INFO TaskSetManager: Finished task 0.0 in stage 3.0 (TID 5) in 1568 ms on ip-172-31-8-141.ec2.internal (executor 1) (1/2)
+26/11/10 07:36:02 INFO TaskSetManager: Finished task 1.0 in stage 3.0 (TID 6) in 1569 ms on ip-172-31-14-235.ec2.internal (executor 2) (2/2)
+26/11/10 07:36:02 INFO YarnScheduler: Removed TaskSet 3.0, whose tasks have all completed, from pool 
+26/11/10 07:36:02 INFO DAGScheduler: ShuffleMapStage 3 (groupByKey at /home/hadoop/project/task2/spark/prepare_features.py:75) finished in 1.593 s
+26/11/10 07:36:02 INFO DAGScheduler: looking for newly runnable stages
+26/11/10 07:36:02 INFO DAGScheduler: running: Set()
+26/11/10 07:36:02 INFO DAGScheduler: waiting: Set(ResultStage 4)
+26/11/10 07:36:02 INFO DAGScheduler: failed: Set()
+26/11/10 07:36:02 INFO DAGScheduler: Submitting ResultStage 4 (PythonRDD[20] at collect at /home/hadoop/project/task2/spark/prepare_features.py:84), which has no missing parents
+26/11/10 07:36:02 INFO MemoryStore: Block broadcast_5 stored as values in memory (estimated size 14.5 KiB, free 1047.6 MiB)
+26/11/10 07:36:02 INFO MemoryStore: Block broadcast_5_piece0 stored as bytes in memory (estimated size 7.7 KiB, actual size: 7.7 KiB, free 1047.6 MiB)
+26/11/10 07:36:02 INFO BlockManagerInfo: Added broadcast_5_piece0 in memory on ip-172-31-15-156.ec2.internal:38627 (size: 7.7 KiB, free: 1048.5 MiB)
+26/11/10 07:36:02 INFO SparkContext: Created broadcast 5 from broadcast at DAGScheduler.scala:1664
+26/11/10 07:36:02 INFO DAGScheduler: Submitting 2 missing tasks from ResultStage 4 (PythonRDD[20] at collect at /home/hadoop/project/task2/spark/prepare_features.py:84) (first 15 tasks are for partitions Vector(0, 1))
+26/11/10 07:36:02 INFO YarnScheduler: Adding task set 4.0 with 2 tasks resource profile 0
+26/11/10 07:36:02 INFO TaskSetManager: Starting task 0.0 in stage 4.0 (TID 7) (ip-172-31-14-235.ec2.internal, executor 2, partition 0, NODE_LOCAL, 8977 bytes) 
+26/11/10 07:36:02 INFO TaskSetManager: Starting task 1.0 in stage 4.0 (TID 8) (ip-172-31-8-141.ec2.internal, executor 1, partition 1, NODE_LOCAL, 8977 bytes) 
+26/11/10 07:36:02 INFO BlockManagerInfo: Added broadcast_5_piece0 in memory on ip-172-31-14-235.ec2.internal:41423 (size: 7.7 KiB, free: 3.0 GiB)
+26/11/10 07:36:02 INFO BlockManagerInfo: Added broadcast_5_piece0 in memory on ip-172-31-8-141.ec2.internal:37019 (size: 7.7 KiB, free: 3.0 GiB)
+26/11/10 07:36:02 INFO MapOutputTrackerMasterEndpoint: Asked to send map output locations for shuffle 0 to 172.31.8.141:45224
+26/11/10 07:36:02 INFO MapOutputTrackerMasterEndpoint: Asked to send map output locations for shuffle 0 to 172.31.14.235:50534
+26/11/10 07:36:09 INFO BlockManagerInfo: Added rdd_19_0 in memory on ip-172-31-14-235.ec2.internal:41423 (size: 472.6 KiB, free: 3.0 GiB)
+26/11/10 07:36:09 INFO TaskSetManager: Finished task 0.0 in stage 4.0 (TID 7) in 6865 ms on ip-172-31-14-235.ec2.internal (executor 2) (1/2)
+26/11/10 07:36:10 INFO BlockManagerInfo: Added rdd_19_1 in memory on ip-172-31-8-141.ec2.internal:37019 (size: 552.1 KiB, free: 3.0 GiB)
+26/11/10 07:36:10 INFO TaskSetManager: Finished task 1.0 in stage 4.0 (TID 8) in 8078 ms on ip-172-31-8-141.ec2.internal (executor 1) (2/2)
+26/11/10 07:36:10 INFO YarnScheduler: Removed TaskSet 4.0, whose tasks have all completed, from pool 
+26/11/10 07:36:10 INFO DAGScheduler: ResultStage 4 (collect at /home/hadoop/project/task2/spark/prepare_features.py:84) finished in 8.089 s
+26/11/10 07:36:10 INFO DAGScheduler: Job 3 is finished. Cancelling potential speculative or zombie tasks for this job
+26/11/10 07:36:10 INFO YarnScheduler: Killing all running tasks in stage 4: Stage finished
+26/11/10 07:36:10 INFO DAGScheduler: Job 3 finished: collect at /home/hadoop/project/task2/spark/prepare_features.py:84, took 9.722301 s
+26/11/10 07:36:10 INFO SparkContext: Starting job: runJob at PythonRDD.scala:191
+26/11/10 07:36:10 INFO DAGScheduler: Got job 4 (runJob at PythonRDD.scala:191) with 1 output partitions
+26/11/10 07:36:10 INFO DAGScheduler: Final stage: ResultStage 6 (runJob at PythonRDD.scala:191)
+26/11/10 07:36:10 INFO DAGScheduler: Parents of final stage: List(ShuffleMapStage 5)
+26/11/10 07:36:10 INFO DAGScheduler: Missing parents: List()
+26/11/10 07:36:10 INFO DAGScheduler: Submitting ResultStage 6 (PythonRDD[21] at RDD at PythonRDD.scala:55), which has no missing parents
+26/11/10 07:36:10 INFO MemoryStore: Block broadcast_6 stored as values in memory (estimated size 16.0 KiB, free 1047.5 MiB)
+26/11/10 07:36:10 INFO MemoryStore: Block broadcast_6_piece0 stored as bytes in memory (estimated size 8.4 KiB, actual size: 8.4 KiB, free 1047.5 MiB)
+26/11/10 07:36:10 INFO BlockManagerInfo: Added broadcast_6_piece0 in memory on ip-172-31-15-156.ec2.internal:38627 (size: 8.4 KiB, free: 1048.5 MiB)
+26/11/10 07:36:10 INFO SparkContext: Created broadcast 6 from broadcast at DAGScheduler.scala:1664
+26/11/10 07:36:10 INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 6 (PythonRDD[21] at RDD at PythonRDD.scala:55) (first 15 tasks are for partitions Vector(0))
+26/11/10 07:36:10 INFO YarnScheduler: Adding task set 6.0 with 1 tasks resource profile 0
+26/11/10 07:36:10 INFO TaskSetManager: Starting task 0.0 in stage 6.0 (TID 9) (ip-172-31-14-235.ec2.internal, executor 2, partition 0, PROCESS_LOCAL, 8977 bytes) 
+26/11/10 07:36:10 INFO BlockManagerInfo: Added broadcast_6_piece0 in memory on ip-172-31-14-235.ec2.internal:41423 (size: 8.4 KiB, free: 3.0 GiB)
+26/11/10 07:36:10 INFO TaskSetManager: Finished task 0.0 in stage 6.0 (TID 9) in 32 ms on ip-172-31-14-235.ec2.internal (executor 2) (1/1)
+26/11/10 07:36:10 INFO YarnScheduler: Removed TaskSet 6.0, whose tasks have all completed, from pool 
+26/11/10 07:36:10 INFO DAGScheduler: ResultStage 6 (runJob at PythonRDD.scala:191) finished in 0.044 s
+26/11/10 07:36:10 INFO DAGScheduler: Job 4 is finished. Cancelling potential speculative or zombie tasks for this job
+26/11/10 07:36:10 INFO YarnScheduler: Killing all running tasks in stage 6: Stage finished
+26/11/10 07:36:10 INFO DAGScheduler: Job 4 finished: runJob at PythonRDD.scala:191, took 0.050979 s
+26/11/10 07:36:10 INFO CodeGenerator: Code generated in 35.328763 ms
+26/11/10 07:36:10 INFO DAGScheduler: Got job 5 (count at NativeMethodAccessorImpl.java:0) with 2 output partitions
+26/11/10 07:36:10 INFO DAGScheduler: Final stage: ResultStage 8 (count at NativeMethodAccessorImpl.java:0)
+26/11/10 07:36:10 INFO DAGScheduler: Parents of final stage: List(ShuffleMapStage 7)
+26/11/10 07:36:10 INFO DAGScheduler: Missing parents: List()
+26/11/10 07:36:10 INFO DAGScheduler: Submitting ResultStage 8 (*(1) Scan ExistingRDD[anchor_date#63,high_low_range#64,next_anchor_date#65,split#66,split_flag#67L,target_next_vol#68,ticker#69,vol_12w#70,vol_1w#71,vol_4w#72,vol_52w#73,vol_52w_imputed#74L,volume_vs_normal#75,weekly_return#76]
+ MapPartitionsRDD[28] at count at NativeMethodAccessorImpl.java:0), which has no missing parents
+26/11/10 07:36:10 INFO MemoryStore: Block broadcast_7 stored as values in memory (estimated size 32.9 KiB, free 1047.5 MiB)
+26/11/10 07:36:10 INFO MemoryStore: Block broadcast_7_piece0 stored as bytes in memory (estimated size 14.8 KiB, actual size: 14.8 KiB, free 1047.5 MiB)
+26/11/10 07:36:10 INFO BlockManagerInfo: Added broadcast_7_piece0 in memory on ip-172-31-15-156.ec2.internal:38627 (size: 14.8 KiB, free: 1048.5 MiB)
+26/11/10 07:36:10 INFO SparkContext: Created broadcast 7 from broadcast at DAGScheduler.scala:1664
+26/11/10 07:36:10 INFO DAGScheduler: Submitting 2 missing tasks from ResultStage 8 (*(1) Scan ExistingRDD[anchor_date#63,high_low_range#64,next_anchor_date#65,split#66,split_flag#67L,target_next_vol#68,ticker#69,vol_12w#70,vol_1w#71,vol_4w#72,vol_52w#73,vol_52w_imputed#74L,volume_vs_normal#75,weekly_return#76]
+ MapPartitionsRDD[28] at count at NativeMethodAccessorImpl.java:0) (first 15 tasks are for partitions Vector(0, 1))
+26/11/10 07:36:10 INFO YarnScheduler: Adding task set 8.0 with 2 tasks resource profile 0
+26/11/10 07:36:10 INFO TaskSetManager: Starting task 1.0 in stage 8.0 (TID 10) (ip-172-31-8-141.ec2.internal, executor 1, partition 1, PROCESS_LOCAL, 8977 bytes) 
+26/11/10 07:36:10 INFO TaskSetManager: Starting task 0.0 in stage 8.0 (TID 11) (ip-172-31-14-235.ec2.internal, executor 2, partition 0, PROCESS_LOCAL, 8977 bytes) 
+26/11/10 07:36:10 INFO BlockManagerInfo: Added broadcast_7_piece0 in memory on ip-172-31-14-235.ec2.internal:41423 (size: 14.8 KiB, free: 3.0 GiB)
+26/11/10 07:36:10 INFO BlockManagerInfo: Added broadcast_7_piece0 in memory on ip-172-31-8-141.ec2.internal:37019 (size: 14.8 KiB, free: 3.0 GiB)
+26/11/10 07:36:11 INFO BlockManagerInfo: Added rdd_28_1 in memory on ip-172-31-8-141.ec2.internal:37019 (size: 441.3 KiB, free: 3.0 GiB)
+26/11/10 07:36:11 INFO BlockManagerInfo: Added rdd_28_0 in memory on ip-172-31-14-235.ec2.internal:41423 (size: 378.2 KiB, free: 3.0 GiB)
+26/11/10 07:36:11 INFO TaskSetManager: Finished task 0.0 in stage 8.0 (TID 11) in 263 ms on ip-172-31-14-235.ec2.internal (executor 2) (1/2)
+26/11/10 07:36:11 INFO TaskSetManager: Finished task 1.0 in stage 8.0 (TID 10) in 265 ms on ip-172-31-8-141.ec2.internal (executor 1) (2/2)
+26/11/10 07:36:11 INFO YarnScheduler: Removed TaskSet 8.0, whose tasks have all completed, from pool 
+26/11/10 07:36:11 INFO DAGScheduler: ResultStage 8 (count at NativeMethodAccessorImpl.java:0) finished in 0.293 s
+26/11/10 07:36:11 INFO DAGScheduler: Job 5 is finished. Cancelling potential speculative or zombie tasks for this job
+26/11/10 07:36:11 INFO YarnScheduler: Killing all running tasks in stage 8: Stage finished
+26/11/10 07:36:11 INFO BlockManagerInfo: Removed broadcast_5_piece0 on ip-172-31-8-141.ec2.internal:37019 in memory (size: 7.7 KiB, free: 3.0 GiB)
+26/11/10 07:36:11 INFO BlockManagerInfo: Removed broadcast_5_piece0 on ip-172-31-15-156.ec2.internal:38627 in memory (size: 7.7 KiB, free: 1048.5 MiB)
+26/11/10 07:36:11 INFO BlockManagerInfo: Removed broadcast_5_piece0 on ip-172-31-14-235.ec2.internal:41423 in memory (size: 7.7 KiB, free: 3.0 GiB)
+26/11/10 07:36:11 INFO BlockManagerInfo: Removed broadcast_7_piece0 on ip-172-31-8-141.ec2.internal:37019 in memory (size: 14.8 KiB, free: 3.0 GiB)
+26/11/10 07:36:11 INFO BlockManagerInfo: Removed broadcast_7_piece0 on ip-172-31-14-235.ec2.internal:41423 in memory (size: 14.8 KiB, free: 3.0 GiB)
+26/11/10 07:36:11 INFO BlockManagerInfo: Removed broadcast_7_piece0 on ip-172-31-15-156.ec2.internal:38627 in memory (size: 14.8 KiB, free: 1048.5 MiB)
+26/11/10 07:36:11 INFO CodeGenerator: Code generated in 21.722296 ms
+26/11/10 07:36:11 INFO BlockManagerInfo: Removed broadcast_4_piece0 on ip-172-31-8-141.ec2.internal:37019 in memory (size: 22.2 KiB, free: 3.0 GiB)
+26/11/10 07:36:11 INFO BlockManagerInfo: Removed broadcast_4_piece0 on ip-172-31-14-235.ec2.internal:41423 in memory (size: 22.2 KiB, free: 3.0 GiB)
+26/11/10 07:36:11 INFO BlockManagerInfo: Removed broadcast_4_piece0 on ip-172-31-15-156.ec2.internal:38627 in memory (size: 22.2 KiB, free: 1048.5 MiB)
+26/11/10 07:36:11 INFO DAGScheduler: Registering RDD 33 (count at NativeMethodAccessorImpl.java:0) as input to shuffle 1
+26/11/10 07:36:11 INFO DAGScheduler: Got map stage job 6 (count at NativeMethodAccessorImpl.java:0) with 2 output partitions
+26/11/10 07:36:11 INFO DAGScheduler: Final stage: ShuffleMapStage 10 (count at NativeMethodAccessorImpl.java:0)
+26/11/10 07:36:11 INFO DAGScheduler: Parents of final stage: List(ShuffleMapStage 9)
+26/11/10 07:36:11 INFO DAGScheduler: Missing parents: List()
+26/11/10 07:36:11 INFO DAGScheduler: Submitting ShuffleMapStage 10 (MapPartitionsRDD[33] at count at NativeMethodAccessorImpl.java:0), which has no missing parents
+26/11/10 07:36:11 INFO MemoryStore: Block broadcast_8 stored as values in memory (estimated size 40.1 KiB, free 1047.6 MiB)
+26/11/10 07:36:11 INFO MemoryStore: Block broadcast_8_piece0 stored as bytes in memory (estimated size 18.1 KiB, actual size: 18.1 KiB, free 1047.6 MiB)
+26/11/10 07:36:11 INFO BlockManagerInfo: Added broadcast_8_piece0 in memory on ip-172-31-15-156.ec2.internal:38627 (size: 18.1 KiB, free: 1048.5 MiB)
+26/11/10 07:36:11 INFO SparkContext: Created broadcast 8 from broadcast at DAGScheduler.scala:1664
+26/11/10 07:36:11 INFO DAGScheduler: Submitting 2 missing tasks from ShuffleMapStage 10 (MapPartitionsRDD[33] at count at NativeMethodAccessorImpl.java:0) (first 15 tasks are for partitions Vector(0, 1))
+26/11/10 07:36:11 INFO YarnScheduler: Adding task set 10.0 with 2 tasks resource profile 0
+26/11/10 07:36:11 INFO BlockManagerInfo: Removed broadcast_2_piece0 on ip-172-31-15-156.ec2.internal:38627 in memory (size: 119.4 KiB, free: 1048.6 MiB)
+26/11/10 07:36:11 INFO TaskSetManager: Starting task 1.0 in stage 10.0 (TID 12) (ip-172-31-8-141.ec2.internal, executor 1, partition 1, PROCESS_LOCAL, 8966 bytes) 
+26/11/10 07:36:11 INFO BlockManagerInfo: Removed broadcast_2_piece0 on ip-172-31-8-141.ec2.internal:37019 in memory (size: 119.4 KiB, free: 3.0 GiB)
+26/11/10 07:36:11 INFO TaskSetManager: Starting task 0.0 in stage 10.0 (TID 13) (ip-172-31-14-235.ec2.internal, executor 2, partition 0, PROCESS_LOCAL, 8966 bytes) 
+26/11/10 07:36:11 INFO BlockManagerInfo: Removed broadcast_2_piece0 on ip-172-31-14-235.ec2.internal:41423 in memory (size: 119.4 KiB, free: 3.0 GiB)
+26/11/10 07:36:11 INFO BlockManagerInfo: Added broadcast_8_piece0 in memory on ip-172-31-8-141.ec2.internal:37019 (size: 18.1 KiB, free: 3.0 GiB)
+26/11/10 07:36:11 INFO BlockManagerInfo: Removed broadcast_3_piece0 on ip-172-31-15-156.ec2.internal:38627 in memory (size: 119.4 KiB, free: 1048.7 MiB)
+26/11/10 07:36:11 INFO BlockManagerInfo: Added broadcast_8_piece0 in memory on ip-172-31-14-235.ec2.internal:41423 (size: 18.1 KiB, free: 3.0 GiB)
+26/11/10 07:36:11 INFO BlockManagerInfo: Removed broadcast_3_piece0 on ip-172-31-8-141.ec2.internal:37019 in memory (size: 119.4 KiB, free: 3.0 GiB)
+26/11/10 07:36:11 INFO BlockManagerInfo: Removed broadcast_3_piece0 on ip-172-31-14-235.ec2.internal:41423 in memory (size: 119.4 KiB, free: 3.0 GiB)
+26/11/10 07:36:11 INFO BlockManagerInfo: Removed broadcast_6_piece0 on ip-172-31-15-156.ec2.internal:38627 in memory (size: 8.4 KiB, free: 1048.7 MiB)
+26/11/10 07:36:11 INFO BlockManagerInfo: Removed broadcast_6_piece0 on ip-172-31-14-235.ec2.internal:41423 in memory (size: 8.4 KiB, free: 3.0 GiB)
+26/11/10 07:36:11 INFO TaskSetManager: Finished task 0.0 in stage 10.0 (TID 13) in 155 ms on ip-172-31-14-235.ec2.internal (executor 2) (1/2)
+26/11/10 07:36:11 INFO TaskSetManager: Finished task 1.0 in stage 10.0 (TID 12) in 156 ms on ip-172-31-8-141.ec2.internal (executor 1) (2/2)
+26/11/10 07:36:11 INFO YarnScheduler: Removed TaskSet 10.0, whose tasks have all completed, from pool 
+26/11/10 07:36:11 INFO DAGScheduler: ShuffleMapStage 10 (count at NativeMethodAccessorImpl.java:0) finished in 0.192 s
+26/11/10 07:36:11 INFO DAGScheduler: looking for newly runnable stages
+26/11/10 07:36:11 INFO DAGScheduler: running: Set()
+26/11/10 07:36:11 INFO DAGScheduler: waiting: Set()
+26/11/10 07:36:11 INFO DAGScheduler: failed: Set()
+26/11/10 07:36:11 INFO CodeGenerator: Code generated in 12.76367 ms
+26/11/10 07:36:11 INFO SparkContext: Starting job: count at NativeMethodAccessorImpl.java:0
+26/11/10 07:36:11 INFO DAGScheduler: Got job 7 (count at NativeMethodAccessorImpl.java:0) with 1 output partitions
+26/11/10 07:36:11 INFO DAGScheduler: Final stage: ResultStage 13 (count at NativeMethodAccessorImpl.java:0)
+26/11/10 07:36:11 INFO DAGScheduler: Parents of final stage: List(ShuffleMapStage 12)
+26/11/10 07:36:11 INFO DAGScheduler: Missing parents: List()
+26/11/10 07:36:11 INFO DAGScheduler: Submitting ResultStage 13 (MapPartitionsRDD[36] at count at NativeMethodAccessorImpl.java:0), which has no missing parents
+26/11/10 07:36:11 INFO MemoryStore: Block broadcast_9 stored as values in memory (estimated size 14.2 KiB, free 1048.4 MiB)
+26/11/10 07:36:11 INFO MemoryStore: Block broadcast_9_piece0 stored as bytes in memory (estimated size 6.7 KiB, actual size: 6.7 KiB, free 1048.4 MiB)
+26/11/10 07:36:11 INFO BlockManagerInfo: Added broadcast_9_piece0 in memory on ip-172-31-15-156.ec2.internal:38627 (size: 6.7 KiB, free: 1048.7 MiB)
+26/11/10 07:36:11 INFO SparkContext: Created broadcast 9 from broadcast at DAGScheduler.scala:1664
+26/11/10 07:36:11 INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 13 (MapPartitionsRDD[36] at count at NativeMethodAccessorImpl.java:0) (first 15 tasks are for partitions Vector(0))
+26/11/10 07:36:11 INFO YarnScheduler: Adding task set 13.0 with 1 tasks resource profile 0
+26/11/10 07:36:11 INFO TaskSetManager: Starting task 0.0 in stage 13.0 (TID 14) (ip-172-31-14-235.ec2.internal, executor 2, partition 0, NODE_LOCAL, 9159 bytes) 
+26/11/10 07:36:11 INFO BlockManagerInfo: Added broadcast_9_piece0 in memory on ip-172-31-14-235.ec2.internal:41423 (size: 6.7 KiB, free: 3.0 GiB)
+26/11/10 07:36:11 INFO MapOutputTrackerMasterEndpoint: Asked to send map output locations for shuffle 1 to 172.31.14.235:50534
+26/11/10 07:36:11 INFO TaskSetManager: Finished task 0.0 in stage 13.0 (TID 14) in 56 ms on ip-172-31-14-235.ec2.internal (executor 2) (1/1)
+26/11/10 07:36:11 INFO YarnScheduler: Removed TaskSet 13.0, whose tasks have all completed, from pool 
+26/11/10 07:36:11 INFO DAGScheduler: ResultStage 13 (count at NativeMethodAccessorImpl.java:0) finished in 0.064 s
+26/11/10 07:36:11 INFO DAGScheduler: Job 7 is finished. Cancelling potential speculative or zombie tasks for this job
+26/11/10 07:36:11 INFO YarnScheduler: Killing all running tasks in stage 13: Stage finished
+26/11/10 07:36:11 INFO DAGScheduler: Job 7 finished: count at NativeMethodAccessorImpl.java:0, took 0.069363 s
+26/11/10 07:36:11 INFO SQLExecution: Generating and posting SparkListenerSQLExecutionObfuscatedInfo...
+26/11/10 07:36:11 INFO SQLExecution: Posted SparkListenerSQLExecutionObfuscatedInfo in 3 ms
+26/11/10 07:36:11 INFO ParquetUtils: Using user defined output committer for Parquet: com.amazon.emr.committer.EmrOptimizedSparkSqlParquetOutputCommitter
+26/11/10 07:36:11 INFO SQLConfCommitterProvider: Getting user defined output committer class com.amazon.emr.committer.EmrOptimizedSparkSqlParquetOutputCommitter
+26/11/10 07:36:11 INFO EmrOptimizedParquetOutputCommitter: EMR Optimized committer is not supported by this filesystem (org.apache.hadoop.hdfs.DistributedFileSystem)
+26/11/10 07:36:11 INFO EmrOptimizedParquetOutputCommitter: Using output committer class org.apache.hadoop.mapreduce.lib.output.FileOutputCommitter
+26/11/10 07:36:11 INFO FileOutputCommitter: File Output Committer Algorithm version is 2
+26/11/10 07:36:11 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+26/11/10 07:36:11 INFO FileOutputCommitter: File Output Committer Algorithm version is 2
+26/11/10 07:36:11 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+26/11/10 07:36:11 INFO SQLConfCommitterProvider: Using output committer class com.amazon.emr.committer.EmrOptimizedSparkSqlParquetOutputCommitter
+26/11/10 07:36:11 INFO CodeGenerator: Code generated in 25.153899 ms
+26/11/10 07:36:11 INFO DefaultCachedBatchSerializer: Predicate isnotnull(split#66) generates partition filter: ((split.count#912 - split.nullCount#911) > 0)
+26/11/10 07:36:11 INFO DefaultCachedBatchSerializer: Predicate (split#66 = train) generates partition filter: ((split.lowerBound#910 <= train) AND (train <= split.upperBound#909))
+26/11/10 07:36:11 INFO SparkContext: Starting job: parquet at NativeMethodAccessorImpl.java:0
+26/11/10 07:36:11 INFO DAGScheduler: Got job 8 (parquet at NativeMethodAccessorImpl.java:0) with 2 output partitions
+26/11/10 07:36:11 INFO DAGScheduler: Final stage: ResultStage 15 (parquet at NativeMethodAccessorImpl.java:0)
+26/11/10 07:36:11 INFO DAGScheduler: Parents of final stage: List(ShuffleMapStage 14)
+26/11/10 07:36:11 INFO DAGScheduler: Missing parents: List()
+26/11/10 07:36:11 INFO DAGScheduler: Submitting ResultStage 15 (MapPartitionsRDD[41] at parquet at NativeMethodAccessorImpl.java:0), which has no missing parents
+26/11/10 07:36:11 INFO MemoryStore: Block broadcast_10 stored as values in memory (estimated size 348.5 KiB, free 1048.1 MiB)
+26/11/10 07:36:11 INFO MemoryStore: Block broadcast_10_piece0 stored as bytes in memory (estimated size 130.8 KiB, actual size: 130.8 KiB, free 1048.0 MiB)
+26/11/10 07:36:11 INFO BlockManagerInfo: Added broadcast_10_piece0 in memory on ip-172-31-15-156.ec2.internal:38627 (size: 130.8 KiB, free: 1048.6 MiB)
+26/11/10 07:36:11 INFO SparkContext: Created broadcast 10 from broadcast at DAGScheduler.scala:1664
+26/11/10 07:36:11 INFO DAGScheduler: Submitting 2 missing tasks from ResultStage 15 (MapPartitionsRDD[41] at parquet at NativeMethodAccessorImpl.java:0) (first 15 tasks are for partitions Vector(0, 1))
+26/11/10 07:36:11 INFO YarnScheduler: Adding task set 15.0 with 2 tasks resource profile 0
+26/11/10 07:36:11 INFO TaskSetManager: Starting task 0.0 in stage 15.0 (TID 15) (ip-172-31-14-235.ec2.internal, executor 2, partition 0, PROCESS_LOCAL, 8977 bytes) 
+26/11/10 07:36:11 INFO TaskSetManager: Starting task 1.0 in stage 15.0 (TID 16) (ip-172-31-8-141.ec2.internal, executor 1, partition 1, PROCESS_LOCAL, 8977 bytes) 
+26/11/10 07:36:11 INFO BlockManagerInfo: Added broadcast_10_piece0 in memory on ip-172-31-14-235.ec2.internal:41423 (size: 130.8 KiB, free: 3.0 GiB)
+26/11/10 07:36:11 INFO BlockManagerInfo: Added broadcast_10_piece0 in memory on ip-172-31-8-141.ec2.internal:37019 (size: 130.8 KiB, free: 3.0 GiB)
+26/11/10 07:36:12 INFO TaskSetManager: Finished task 1.0 in stage 15.0 (TID 16) in 300 ms on ip-172-31-8-141.ec2.internal (executor 1) (1/2)
+26/11/10 07:36:12 INFO TaskSetManager: Finished task 0.0 in stage 15.0 (TID 15) in 333 ms on ip-172-31-14-235.ec2.internal (executor 2) (2/2)
+26/11/10 07:36:12 INFO YarnScheduler: Removed TaskSet 15.0, whose tasks have all completed, from pool 
+26/11/10 07:36:12 INFO DAGScheduler: ResultStage 15 (parquet at NativeMethodAccessorImpl.java:0) finished in 0.391 s
+26/11/10 07:36:12 INFO DAGScheduler: Job 8 is finished. Cancelling potential speculative or zombie tasks for this job
+26/11/10 07:36:12 INFO YarnScheduler: Killing all running tasks in stage 15: Stage finished
+26/11/10 07:36:12 INFO DAGScheduler: Job 8 finished: parquet at NativeMethodAccessorImpl.java:0, took 0.397751 s
+26/11/10 07:36:12 INFO FileFormatWriter: Start to commit write Job 640af668-3392-4790-8ddb-b947dd63efef.
+26/11/10 07:36:12 INFO FileFormatWriter: Write Job 640af668-3392-4790-8ddb-b947dd63efef committed. Elapsed time: 9 ms.
+26/11/10 07:36:12 INFO FileFormatWriter: Finished processing stats for write job 640af668-3392-4790-8ddb-b947dd63efef.
+26/11/10 07:36:12 INFO SQLExecution: Generating and posting SparkListenerSQLExecutionObfuscatedInfo...
+26/11/10 07:36:12 INFO SQLExecution: Posted SparkListenerSQLExecutionObfuscatedInfo in 1 ms
+26/11/10 07:36:12 INFO ParquetUtils: Using user defined output committer for Parquet: com.amazon.emr.committer.EmrOptimizedSparkSqlParquetOutputCommitter
+26/11/10 07:36:12 INFO SQLConfCommitterProvider: Getting user defined output committer class com.amazon.emr.committer.EmrOptimizedSparkSqlParquetOutputCommitter
+26/11/10 07:36:12 INFO EmrOptimizedParquetOutputCommitter: EMR Optimized committer is not supported by this filesystem (org.apache.hadoop.hdfs.DistributedFileSystem)
+26/11/10 07:36:12 INFO EmrOptimizedParquetOutputCommitter: Using output committer class org.apache.hadoop.mapreduce.lib.output.FileOutputCommitter
+26/11/10 07:36:12 INFO FileOutputCommitter: File Output Committer Algorithm version is 2
+26/11/10 07:36:12 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+26/11/10 07:36:12 INFO FileOutputCommitter: File Output Committer Algorithm version is 2
+26/11/10 07:36:12 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+26/11/10 07:36:12 INFO SQLConfCommitterProvider: Using output committer class com.amazon.emr.committer.EmrOptimizedSparkSqlParquetOutputCommitter
+26/11/10 07:36:12 INFO DefaultCachedBatchSerializer: Predicate isnotnull(split#66) generates partition filter: ((split.count#1276 - split.nullCount#1275) > 0)
+26/11/10 07:36:12 INFO DefaultCachedBatchSerializer: Predicate (split#66 = validation) generates partition filter: ((split.lowerBound#1274 <= validation) AND (validation <= split.upperBound#1273))
+26/11/10 07:36:12 INFO SparkContext: Starting job: parquet at NativeMethodAccessorImpl.java:0
+26/11/10 07:36:12 INFO DAGScheduler: Got job 9 (parquet at NativeMethodAccessorImpl.java:0) with 2 output partitions
+26/11/10 07:36:12 INFO DAGScheduler: Final stage: ResultStage 17 (parquet at NativeMethodAccessorImpl.java:0)
+26/11/10 07:36:12 INFO DAGScheduler: Parents of final stage: List(ShuffleMapStage 16)
+26/11/10 07:36:12 INFO DAGScheduler: Missing parents: List()
+26/11/10 07:36:12 INFO DAGScheduler: Submitting ResultStage 17 (MapPartitionsRDD[46] at parquet at NativeMethodAccessorImpl.java:0), which has no missing parents
+26/11/10 07:36:12 INFO MemoryStore: Block broadcast_11 stored as values in memory (estimated size 348.5 KiB, free 1047.6 MiB)
+26/11/10 07:36:12 INFO MemoryStore: Block broadcast_11_piece0 stored as bytes in memory (estimated size 130.8 KiB, actual size: 130.8 KiB, free 1047.5 MiB)
+26/11/10 07:36:12 INFO BlockManagerInfo: Added broadcast_11_piece0 in memory on ip-172-31-15-156.ec2.internal:38627 (size: 130.8 KiB, free: 1048.5 MiB)
+26/11/10 07:36:12 INFO SparkContext: Created broadcast 11 from broadcast at DAGScheduler.scala:1664
+26/11/10 07:36:12 INFO DAGScheduler: Submitting 2 missing tasks from ResultStage 17 (MapPartitionsRDD[46] at parquet at NativeMethodAccessorImpl.java:0) (first 15 tasks are for partitions Vector(0, 1))
+26/11/10 07:36:12 INFO YarnScheduler: Adding task set 17.0 with 2 tasks resource profile 0
+26/11/10 07:36:12 INFO TaskSetManager: Starting task 1.0 in stage 17.0 (TID 17) (ip-172-31-8-141.ec2.internal, executor 1, partition 1, PROCESS_LOCAL, 8977 bytes) 
+26/11/10 07:36:12 INFO TaskSetManager: Starting task 0.0 in stage 17.0 (TID 18) (ip-172-31-14-235.ec2.internal, executor 2, partition 0, PROCESS_LOCAL, 8977 bytes) 
+26/11/10 07:36:12 INFO BlockManagerInfo: Added broadcast_11_piece0 in memory on ip-172-31-14-235.ec2.internal:41423 (size: 130.8 KiB, free: 3.0 GiB)
+26/11/10 07:36:12 INFO BlockManagerInfo: Added broadcast_11_piece0 in memory on ip-172-31-8-141.ec2.internal:37019 (size: 130.8 KiB, free: 3.0 GiB)
+26/11/10 07:36:12 INFO TaskSetManager: Finished task 0.0 in stage 17.0 (TID 18) in 116 ms on ip-172-31-14-235.ec2.internal (executor 2) (1/2)
+26/11/10 07:36:12 INFO TaskSetManager: Finished task 1.0 in stage 17.0 (TID 17) in 138 ms on ip-172-31-8-141.ec2.internal (executor 1) (2/2)
+26/11/10 07:36:12 INFO YarnScheduler: Removed TaskSet 17.0, whose tasks have all completed, from pool 
+26/11/10 07:36:12 INFO DAGScheduler: ResultStage 17 (parquet at NativeMethodAccessorImpl.java:0) finished in 0.182 s
+26/11/10 07:36:12 INFO DAGScheduler: Job 9 is finished. Cancelling potential speculative or zombie tasks for this job
+26/11/10 07:36:12 INFO YarnScheduler: Killing all running tasks in stage 17: Stage finished
+26/11/10 07:36:12 INFO DAGScheduler: Job 9 finished: parquet at NativeMethodAccessorImpl.java:0, took 0.189468 s
+26/11/10 07:36:12 INFO FileFormatWriter: Start to commit write Job 75fa1dda-108d-47b6-a7a9-2952c19dd302.
+26/11/10 07:36:12 INFO FileFormatWriter: Write Job 75fa1dda-108d-47b6-a7a9-2952c19dd302 committed. Elapsed time: 9 ms.
+26/11/10 07:36:12 INFO FileFormatWriter: Finished processing stats for write job 75fa1dda-108d-47b6-a7a9-2952c19dd302.
+26/11/10 07:36:12 INFO SQLExecution: Generating and posting SparkListenerSQLExecutionObfuscatedInfo...
+26/11/10 07:36:12 INFO SQLExecution: Posted SparkListenerSQLExecutionObfuscatedInfo in 0 ms
+26/11/10 07:36:12 INFO ParquetUtils: Using user defined output committer for Parquet: com.amazon.emr.committer.EmrOptimizedSparkSqlParquetOutputCommitter
+26/11/10 07:36:12 INFO SQLConfCommitterProvider: Getting user defined output committer class com.amazon.emr.committer.EmrOptimizedSparkSqlParquetOutputCommitter
+26/11/10 07:36:12 INFO EmrOptimizedParquetOutputCommitter: EMR Optimized committer is not supported by this filesystem (org.apache.hadoop.hdfs.DistributedFileSystem)
+26/11/10 07:36:12 INFO EmrOptimizedParquetOutputCommitter: Using output committer class org.apache.hadoop.mapreduce.lib.output.FileOutputCommitter
+26/11/10 07:36:12 INFO FileOutputCommitter: File Output Committer Algorithm version is 2
+26/11/10 07:36:12 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+26/11/10 07:36:12 INFO FileOutputCommitter: File Output Committer Algorithm version is 2
+26/11/10 07:36:12 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+26/11/10 07:36:12 INFO SQLConfCommitterProvider: Using output committer class com.amazon.emr.committer.EmrOptimizedSparkSqlParquetOutputCommitter
+26/11/10 07:36:12 INFO DefaultCachedBatchSerializer: Predicate isnotnull(split#66) generates partition filter: ((split.count#1640 - split.nullCount#1639) > 0)
+26/11/10 07:36:12 INFO DefaultCachedBatchSerializer: Predicate (split#66 = test) generates partition filter: ((split.lowerBound#1638 <= test) AND (test <= split.upperBound#1637))
+26/11/10 07:36:12 INFO SparkContext: Starting job: parquet at NativeMethodAccessorImpl.java:0
+26/11/10 07:36:12 INFO DAGScheduler: Got job 10 (parquet at NativeMethodAccessorImpl.java:0) with 2 output partitions
+26/11/10 07:36:12 INFO DAGScheduler: Final stage: ResultStage 19 (parquet at NativeMethodAccessorImpl.java:0)
+26/11/10 07:36:12 INFO DAGScheduler: Parents of final stage: List(ShuffleMapStage 18)
+26/11/10 07:36:12 INFO DAGScheduler: Missing parents: List()
+26/11/10 07:36:12 INFO DAGScheduler: Submitting ResultStage 19 (MapPartitionsRDD[51] at parquet at NativeMethodAccessorImpl.java:0), which has no missing parents
+26/11/10 07:36:12 INFO MemoryStore: Block broadcast_12 stored as values in memory (estimated size 348.5 KiB, free 1047.1 MiB)
+26/11/10 07:36:12 INFO MemoryStore: Block broadcast_12_piece0 stored as bytes in memory (estimated size 130.8 KiB, actual size: 130.8 KiB, free 1047.0 MiB)
+26/11/10 07:36:12 INFO BlockManagerInfo: Added broadcast_12_piece0 in memory on ip-172-31-15-156.ec2.internal:38627 (size: 130.8 KiB, free: 1048.4 MiB)
+26/11/10 07:36:12 INFO SparkContext: Created broadcast 12 from broadcast at DAGScheduler.scala:1664
+26/11/10 07:36:12 INFO DAGScheduler: Submitting 2 missing tasks from ResultStage 19 (MapPartitionsRDD[51] at parquet at NativeMethodAccessorImpl.java:0) (first 15 tasks are for partitions Vector(0, 1))
+26/11/10 07:36:12 INFO YarnScheduler: Adding task set 19.0 with 2 tasks resource profile 0
+26/11/10 07:36:12 INFO TaskSetManager: Starting task 0.0 in stage 19.0 (TID 19) (ip-172-31-14-235.ec2.internal, executor 2, partition 0, PROCESS_LOCAL, 8977 bytes) 
+26/11/10 07:36:12 INFO TaskSetManager: Starting task 1.0 in stage 19.0 (TID 20) (ip-172-31-8-141.ec2.internal, executor 1, partition 1, PROCESS_LOCAL, 8977 bytes) 
+26/11/10 07:36:12 INFO BlockManagerInfo: Added broadcast_12_piece0 in memory on ip-172-31-14-235.ec2.internal:41423 (size: 130.8 KiB, free: 3.0 GiB)
+26/11/10 07:36:12 INFO BlockManagerInfo: Added broadcast_12_piece0 in memory on ip-172-31-8-141.ec2.internal:37019 (size: 130.8 KiB, free: 3.0 GiB)
+26/11/10 07:36:12 INFO TaskSetManager: Finished task 0.0 in stage 19.0 (TID 19) in 96 ms on ip-172-31-14-235.ec2.internal (executor 2) (1/2)
+26/11/10 07:36:12 INFO TaskSetManager: Finished task 1.0 in stage 19.0 (TID 20) in 113 ms on ip-172-31-8-141.ec2.internal (executor 1) (2/2)
+26/11/10 07:36:12 INFO YarnScheduler: Removed TaskSet 19.0, whose tasks have all completed, from pool 
+26/11/10 07:36:12 INFO DAGScheduler: ResultStage 19 (parquet at NativeMethodAccessorImpl.java:0) finished in 0.151 s
+26/11/10 07:36:12 INFO DAGScheduler: Job 10 is finished. Cancelling potential speculative or zombie tasks for this job
+26/11/10 07:36:12 INFO YarnScheduler: Killing all running tasks in stage 19: Stage finished
+26/11/10 07:36:12 INFO DAGScheduler: Job 10 finished: parquet at NativeMethodAccessorImpl.java:0, took 0.157938 s
+26/11/10 07:36:12 INFO FileFormatWriter: Start to commit write Job 0bb6dc6a-e7a4-4d5a-852d-0fd5630c94dd.
+26/11/10 07:36:12 INFO FileFormatWriter: Write Job 0bb6dc6a-e7a4-4d5a-852d-0fd5630c94dd committed. Elapsed time: 9 ms.
+26/11/10 07:36:12 INFO FileFormatWriter: Finished processing stats for write job 0bb6dc6a-e7a4-4d5a-852d-0fd5630c94dd.
+26/11/10 07:36:12 INFO SQLExecution: Generating and posting SparkListenerSQLExecutionObfuscatedInfo...
+26/11/10 07:36:12 INFO SQLExecution: Posted SparkListenerSQLExecutionObfuscatedInfo in 1 ms
+26/11/10 07:36:12 INFO ParquetUtils: Using user defined output committer for Parquet: com.amazon.emr.committer.EmrOptimizedSparkSqlParquetOutputCommitter
+26/11/10 07:36:12 INFO SQLConfCommitterProvider: Getting user defined output committer class com.amazon.emr.committer.EmrOptimizedSparkSqlParquetOutputCommitter
+26/11/10 07:36:12 INFO EmrOptimizedParquetOutputCommitter: EMR Optimized committer is not supported by this filesystem (org.apache.hadoop.hdfs.DistributedFileSystem)
+26/11/10 07:36:12 INFO EmrOptimizedParquetOutputCommitter: Using output committer class org.apache.hadoop.mapreduce.lib.output.FileOutputCommitter
+26/11/10 07:36:12 INFO FileOutputCommitter: File Output Committer Algorithm version is 2
+26/11/10 07:36:12 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+26/11/10 07:36:12 INFO FileOutputCommitter: File Output Committer Algorithm version is 2
+26/11/10 07:36:12 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+26/11/10 07:36:12 INFO SQLConfCommitterProvider: Using output committer class com.amazon.emr.committer.EmrOptimizedSparkSqlParquetOutputCommitter
+26/11/10 07:36:12 INFO SparkContext: Starting job: parquet at NativeMethodAccessorImpl.java:0
+26/11/10 07:36:12 INFO DAGScheduler: Got job 11 (parquet at NativeMethodAccessorImpl.java:0) with 2 output partitions
+26/11/10 07:36:12 INFO DAGScheduler: Final stage: ResultStage 21 (parquet at NativeMethodAccessorImpl.java:0)
+26/11/10 07:36:12 INFO DAGScheduler: Parents of final stage: List(ShuffleMapStage 20)
+26/11/10 07:36:12 INFO DAGScheduler: Missing parents: List()
+26/11/10 07:36:12 INFO DAGScheduler: Submitting ResultStage 21 (MapPartitionsRDD[55] at parquet at NativeMethodAccessorImpl.java:0), which has no missing parents
+26/11/10 07:36:12 INFO MemoryStore: Block broadcast_13 stored as values in memory (estimated size 333.3 KiB, free 1046.7 MiB)
+26/11/10 07:36:12 INFO MemoryStore: Block broadcast_13_piece0 stored as bytes in memory (estimated size 125.0 KiB, actual size: 125.0 KiB, free 1046.6 MiB)
+26/11/10 07:36:12 INFO BlockManagerInfo: Added broadcast_13_piece0 in memory on ip-172-31-15-156.ec2.internal:38627 (size: 125.0 KiB, free: 1048.2 MiB)
+26/11/10 07:36:12 INFO SparkContext: Created broadcast 13 from broadcast at DAGScheduler.scala:1664
+26/11/10 07:36:12 INFO DAGScheduler: Submitting 2 missing tasks from ResultStage 21 (MapPartitionsRDD[55] at parquet at NativeMethodAccessorImpl.java:0) (first 15 tasks are for partitions Vector(0, 1))
+26/11/10 07:36:12 INFO YarnScheduler: Adding task set 21.0 with 2 tasks resource profile 0
+26/11/10 07:36:12 INFO TaskSetManager: Starting task 0.0 in stage 21.0 (TID 21) (ip-172-31-14-235.ec2.internal, executor 2, partition 0, PROCESS_LOCAL, 8977 bytes) 
+26/11/10 07:36:12 INFO TaskSetManager: Starting task 1.0 in stage 21.0 (TID 22) (ip-172-31-8-141.ec2.internal, executor 1, partition 1, PROCESS_LOCAL, 8977 bytes) 
+26/11/10 07:36:12 INFO BlockManagerInfo: Added broadcast_13_piece0 in memory on ip-172-31-8-141.ec2.internal:37019 (size: 125.0 KiB, free: 3.0 GiB)
+26/11/10 07:36:12 INFO BlockManagerInfo: Added broadcast_13_piece0 in memory on ip-172-31-14-235.ec2.internal:41423 (size: 125.0 KiB, free: 3.0 GiB)
+26/11/10 07:36:12 INFO TaskSetManager: Finished task 0.0 in stage 21.0 (TID 21) in 118 ms on ip-172-31-14-235.ec2.internal (executor 2) (1/2)
+26/11/10 07:36:12 INFO TaskSetManager: Finished task 1.0 in stage 21.0 (TID 22) in 139 ms on ip-172-31-8-141.ec2.internal (executor 1) (2/2)
+26/11/10 07:36:12 INFO YarnScheduler: Removed TaskSet 21.0, whose tasks have all completed, from pool 
+26/11/10 07:36:12 INFO DAGScheduler: ResultStage 21 (parquet at NativeMethodAccessorImpl.java:0) finished in 0.176 s
+26/11/10 07:36:12 INFO DAGScheduler: Job 11 is finished. Cancelling potential speculative or zombie tasks for this job
+26/11/10 07:36:12 INFO YarnScheduler: Killing all running tasks in stage 21: Stage finished
+26/11/10 07:36:12 INFO DAGScheduler: Job 11 finished: parquet at NativeMethodAccessorImpl.java:0, took 0.182963 s
+26/11/10 07:36:12 INFO FileFormatWriter: Start to commit write Job 3fac74b7-b196-4297-a7cb-b3409dea7c1b.
+26/11/10 07:36:12 INFO FileFormatWriter: Write Job 3fac74b7-b196-4297-a7cb-b3409dea7c1b committed. Elapsed time: 9 ms.
+26/11/10 07:36:12 INFO FileFormatWriter: Finished processing stats for write job 3fac74b7-b196-4297-a7cb-b3409dea7c1b.
+26/11/10 07:36:12 INFO SQLExecution: Generating and posting SparkListenerSQLExecutionObfuscatedInfo...
+26/11/10 07:36:12 INFO SQLExecution: Posted SparkListenerSQLExecutionObfuscatedInfo in 0 ms
+26/11/10 07:36:12 INFO SparkContext: SparkContext is stopping with exitCode 0.
+26/11/10 07:36:12 INFO SparkUI: Stopped Spark web UI at http://ip-172-31-15-156.ec2.internal:4040
+26/11/10 07:36:12 INFO YarnClientSchedulerBackend: Interrupting monitor thread
+26/11/10 07:36:12 INFO YarnClientSchedulerBackend: Shutting down all executors
+26/11/10 07:36:12 INFO YarnSchedulerBackend$YarnDriverEndpoint: Asking each executor to shut down
+26/11/10 07:36:12 INFO YarnClientSchedulerBackend: YARN client scheduler backend Stopped
+26/11/10 07:36:12 INFO MapOutputTrackerMasterEndpoint: MapOutputTrackerMasterEndpoint stopped!
+26/11/10 07:36:12 INFO MemoryStore: MemoryStore cleared
+26/11/10 07:36:12 INFO BlockManager: BlockManager stopped
+26/11/10 07:36:13 INFO BlockManagerMaster: BlockManagerMaster stopped
+26/11/10 07:36:13 INFO OutputCommitCoordinator$OutputCommitCoordinatorEndpoint: OutputCommitCoordinator stopped!
+26/11/10 07:36:13 INFO SparkContext: Successfully stopped SparkContext
+26/11/10 07:36:14 INFO ShutdownHookManager: Shutdown hook called
+26/11/10 07:36:14 INFO ShutdownHookManager: Deleting directory /mnt/tmp/spark-a5b865bf-8b44-4082-898d-83fc85c788ba/pyspark-25cd5c4f-0e4d-4c3a-81e4-52d5f49dc366
+26/11/10 07:36:14 INFO ShutdownHookManager: Deleting directory /mnt/tmp/spark-1c667377-1e10-475f-a518-9e63347dd98b
+26/11/10 07:36:14 INFO ShutdownHookManager: Deleting directory /mnt/tmp/spark-a5b865bf-8b44-4082-898d-83fc85c788ba
+26/11/10 07:36:14 INFO ShutdownHookManager: Deleting directory /mnt/tmp/localPyFiles-91ffb9a1-ec34-4e17-b4bc-354d4bdb07b5
+
+[exit 0]
+
+$ hive -f task2/hive/02_reconcile.sql
+raw_rows	63124
+cleaned_rows	61793
+rejected_rows	1331
+out_of_range	1326
+close_outside_range	2
+bad_price|bad_volume	1
+open_outside_range	1
+bad_price	1
+test	2601	2017-01-06	2017-12-22
+train	6819	2013-05-10	2015-12-24
+validation	2595	2016-01-08	2016-12-23
+Hive Session ID = 3cb6710a-3e3c-4f4d-b66e-c2032421b93d
+
+Logging initialized using configuration in file:/etc/hive/conf.dist/hive-log4j2.properties Async: true
+Query ID = hadoop_20261110073624_1754d86a-fe39-47c8-9535-011b13eeb17f
+Total jobs = 1
+Launching Job 1 out of 1
+Status: Running (Executing on YARN cluster with App id application_1794292319670_0010)
+
+Map 1: -/-	Reducer 2: 0/1	
+Map 1: 0/1	Reducer 2: 0/1	
+Map 1: 0(+1)/1	Reducer 2: 0/1	
+Map 1: 1/1	Reducer 2: 0(+1)/1	
+Map 1: 1/1	Reducer 2: 1/1	
+OK
+Time taken: 11.052 seconds, Fetched: 1 row(s)
+Query ID = hadoop_20261110073635_cdc25dd3-3211-429c-a5f0-69c68611f4d2
+Total jobs = 1
+Launching Job 1 out of 1
+Status: Running (Executing on YARN cluster with App id application_1794292319670_0010)
+
+Map 1: -/-	Reducer 2: 0/1	
+Map 1: 0(+1)/1	Reducer 2: 0/1	
+Map 1: 1/1	Reducer 2: 1/1	
+OK
+Time taken: 1.374 seconds, Fetched: 1 row(s)
+Query ID = hadoop_20261110073636_c6dee955-f8e4-4a5c-99ec-606e976d4d63
+Total jobs = 1
+Launching Job 1 out of 1
+Status: Running (Executing on YARN cluster with App id application_1794292319670_0010)
+
+Map 1: -/-	Reducer 2: 0/1	
+Map 1: 1/1	Reducer 2: 1/1	
+OK
+Time taken: 0.422 seconds, Fetched: 1 row(s)
+Query ID = hadoop_20261110073637_6a1a1c27-fc04-474b-8015-6ca702fcf97a
+Total jobs = 1
+Launching Job 1 out of 1
+Status: Running (Executing on YARN cluster with App id application_1794292319670_0010)
+
+Map 1: 0/1	Reducer 2: 0/2	Reducer 3: 0/1	
+Map 1: 1/1	Reducer 2: 2/2	Reducer 3: 0(+1)/1	
+Map 1: 1/1	Reducer 2: 2/2	Reducer 3: 1/1	
+OK
+Time taken: 0.819 seconds, Fetched: 5 row(s)
+Query ID = hadoop_20261110073637_ec70eeb2-3ef7-445c-9c52-fef521a43cfd
+Total jobs = 1
+Launching Job 1 out of 1
+Status: Running (Executing on YARN cluster with App id application_1794292319670_0010)
+
+Map 1: 0/1	Reducer 2: 0/2	Reducer 3: 0/1	
+Map 1: 1/1	Reducer 2: 2/2	Reducer 3: 1/1	
+OK
+Time taken: 0.609 seconds, Fetched: 3 row(s)
+
+[exit 0]
+
+$ hadoop fs -du -s /project/raw/prices/all_stocks_5yr_sample.csv
+2993809  5987618  /project/raw/prices/all_stocks_5yr_sample.csv
+
+[exit 0]
+
+$ hadoop fs -du -s /project/prepared
+3055282  6110564  /project/prepared
+
+[exit 0]
+
+$ hadoop fs -du -s /project/runs/sample_reference_r0
+1068618  2137236  /project/runs/sample_reference_r0
+
+[exit 0]
+
+$ hdfs dfsadmin -report | grep -E 'Name:|DFS Used:|DFS Remaining:'
+DFS Remaining: 119453706078 (111.25 GB)
+DFS Used: 1339509962 (1.25 GB)
+Name: 172.31.14.235:9866 (ip-172-31-14-235.ec2.internal)
+DFS Used: 701513317 (669.02 MB)
+Non DFS Used: 1747874203 (1.63 GB)
+DFS Remaining: 59658212271 (55.56 GB)
+Name: 172.31.8.141:9866 (ip-172-31-8-141.ec2.internal)
+DFS Used: 637996645 (608.44 MB)
+Non DFS Used: 1674109339 (1.56 GB)
+DFS Remaining: 59795493807 (55.69 GB)
+
+[exit 0]
