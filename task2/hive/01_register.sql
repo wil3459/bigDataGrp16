@@ -63,3 +63,27 @@ CREATE EXTERNAL TABLE IF NOT EXISTS project.weekly_all (
 )
 STORED AS PARQUET
 LOCATION '/project/prepared/weekly_all';
+
+CREATE EXTERNAL TABLE IF NOT EXISTS project.weekly_train (
+  ticker STRING, anchor_date STRING, next_anchor_date STRING,
+  vol_1w DOUBLE, vol_4w DOUBLE, vol_12w DOUBLE, vol_52w DOUBLE, vol_52w_imputed BIGINT,
+  high_low_range DOUBLE, weekly_return DOUBLE, volume_vs_normal DOUBLE,
+  split_flag BIGINT, target_next_vol DOUBLE, `split` STRING)
+STORED AS PARQUET
+LOCATION '/project/prepared/weekly_train';
+
+CREATE EXTERNAL TABLE IF NOT EXISTS project.weekly_validation (
+  ticker STRING, anchor_date STRING, next_anchor_date STRING,
+  vol_1w DOUBLE, vol_4w DOUBLE, vol_12w DOUBLE, vol_52w DOUBLE, vol_52w_imputed BIGINT,
+  high_low_range DOUBLE, weekly_return DOUBLE, volume_vs_normal DOUBLE,
+  split_flag BIGINT, target_next_vol DOUBLE, `split` STRING)
+STORED AS PARQUET
+LOCATION '/project/prepared/weekly_validation';
+
+CREATE EXTERNAL TABLE IF NOT EXISTS project.weekly_test (
+  ticker STRING, anchor_date STRING, next_anchor_date STRING,
+  vol_1w DOUBLE, vol_4w DOUBLE, vol_12w DOUBLE, vol_52w DOUBLE, vol_52w_imputed BIGINT,
+  high_low_range DOUBLE, weekly_return DOUBLE, volume_vs_normal DOUBLE,
+  split_flag BIGINT, target_next_vol DOUBLE, `split` STRING)
+STORED AS PARQUET
+LOCATION '/project/prepared/weekly_test';
