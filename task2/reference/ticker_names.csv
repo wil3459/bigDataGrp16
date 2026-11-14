@@ -1,0 +1,506 @@
+ticker,company,match_names,rule
+A,Agilent Technologies Inc,Agilent,manual
+AAL,American Airlines Group,American Airlines,manual
+AAP,Advance Auto Parts,Advance Auto Parts,auto
+AAPL,Apple Inc.,Apple,auto
+ABBV,AbbVie Inc.,AbbVie,auto
+ABC,AmerisourceBergen Corp,AmerisourceBergen,auto
+ABT,Abbott Laboratories,Abbott Laboratories,manual
+ACN,Accenture plc,Accenture,auto
+ADBE,Adobe Systems Inc,Adobe Systems|Adobe Inc,manual
+ADI,"Analog Devices, Inc.",Analog Devices,auto
+ADM,Archer-Daniels-Midland Co,Archer-Daniels-Midland,auto
+ADP,Automatic Data Processing,Automatic Data Processing,auto
+ADS,Alliance Data Systems,Alliance Data Systems,auto
+ADSK,Autodesk Inc.,Autodesk,auto
+AEE,Ameren Corp,Ameren,auto
+AEP,American Electric Power,American Electric Power,auto
+AES,AES Corp,AES,auto
+AET,Aetna Inc,Aetna,manual
+AFL,AFLAC Inc,AFLAC,auto
+AGN,"Allergan, Plc",Allergan|Actavis,manual
+AIG,"American International Group, Inc.",American International Group|AIG,manual
+AIV,Apartment Investment & Management,Apartment Investment & Management,auto
+AIZ,Assurant Inc.,Assurant,auto
+AJG,Arthur J. Gallagher & Co.,Arthur J. Gallagher,manual
+AKAM,Akamai Technologies Inc,Akamai Technologies,auto
+ALB,Albemarle Corp,Albemarle,auto
+ALGN,Align Technology,Align Technology,auto
+ALK,Alaska Air Group Inc,Alaska Air,auto
+ALL,Allstate Corp,Allstate,auto
+ALLE,Allegion,Allegion,auto
+ALXN,Alexion Pharmaceuticals,Alexion Pharmaceuticals,auto
+AMAT,Applied Materials Inc.,Applied Materials,auto
+AMD,Advanced Micro Devices Inc,Advanced Micro Devices,auto
+AME,AMETEK Inc.,AMETEK,auto
+AMG,Affiliated Managers Group Inc,Affiliated Managers,auto
+AMGN,Amgen Inc.,Amgen,auto
+AMP,Ameriprise Financial,Ameriprise Financial,auto
+AMT,American Tower Corp A,American Tower,auto
+AMZN,Amazon.com Inc.,Amazon.com|Amazon Inc,manual
+ANDV,Andeavor,Andeavor|Tesoro,manual
+ANSS,ANSYS,ANSYS,auto
+ANTM,Anthem Inc.,Anthem Inc|WellPoint,manual
+AON,Aon plc,Aon plc|Aon Corporation,manual
+AOS,A.O. Smith Corp,A.O. Smith,auto
+APA,Apache Corporation,Apache Corporation,manual
+APC,Anadarko Petroleum Corp,Anadarko Petroleum,auto
+APD,Air Products & Chemicals Inc,Air Products & Chemicals,auto
+APH,Amphenol Corp,Amphenol,auto
+APTV,Aptiv Plc,Aptiv,auto
+ARE,Alexandria Real Estate Equities Inc,Alexandria Real Estate Equities,auto
+ARNC,Arconic Inc.,Arconic,auto
+ATVI,Activision Blizzard,Activision Blizzard,auto
+AVB,"AvalonBay Communities, Inc.",AvalonBay Communities,auto
+AVGO,Broadcom,Broadcom,auto
+AVY,Avery Dennison Corp,Avery Dennison,auto
+AWK,American Water Works Company Inc,American Water Works,auto
+AXP,American Express Co,American Express,auto
+AYI,Acuity Brands Inc,Acuity Brands,auto
+AZO,AutoZone Inc,AutoZone,auto
+BA,Boeing Company,Boeing,auto
+BAC,Bank of America Corp,Bank of America,auto
+BAX,Baxter International Inc.,Baxter International,manual
+BBT,BB&T Corporation,BB&T,auto
+BBY,Best Buy Co. Inc.,Best Buy,auto
+BDX,Becton Dickinson,Becton Dickinson,auto
+BEN,Franklin Resources,Franklin Resources,auto
+BF.B,Brown-Forman Corp.,Brown-Forman,manual
+BHF,Brighthouse Financial Inc,Brighthouse Financial,auto
+BHGE,"Baker Hughes, a GE Company",Baker Hughes,manual
+BIIB,Biogen Inc.,Biogen,auto
+BK,The Bank of New York Mellon Corp.,BNY Mellon|Bank of New York Mellon,manual
+BLK,BlackRock,BlackRock,auto
+BLL,Ball Corp,Ball Corporation,manual
+BMY,Bristol-Myers Squibb,Bristol-Myers Squibb,auto
+BRK.B,Berkshire Hathaway,Berkshire Hathaway,manual
+BSX,Boston Scientific,Boston Scientific,auto
+BWA,BorgWarner,BorgWarner,auto
+BXP,Boston Properties,Boston Properties,auto
+C,Citigroup Inc.,Citigroup|Citibank,manual
+CA,"CA, Inc.",CA Technologies,manual
+CAG,Conagra Brands,Conagra Brands,auto
+CAH,Cardinal Health Inc.,Cardinal Health,auto
+CAT,Caterpillar Inc.,Caterpillar Inc,manual
+CB,Chubb Limited,Chubb|ACE Limited,manual
+CBG,CBRE Group,CBRE,manual
+CBOE,Cboe Global Markets,Cboe Global Markets,auto
+CBS,CBS Corp.,CBS,auto
+CCI,Crown Castle International Corp.,Crown Castle International,auto
+CCL,Carnival Corp.,Carnival Corporation|Carnival Cruise,manual
+CDNS,Cadence Design Systems,Cadence Design Systems,auto
+CELG,Celgene Corp.,Celgene,auto
+CERN,Cerner,Cerner,auto
+CF,CF Industries Holdings Inc,CF Industries,manual
+CFG,Citizens Financial Group,Citizens Financial,auto
+CHD,Church & Dwight,Church & Dwight,auto
+CHK,Chesapeake Energy,Chesapeake Energy,auto
+CHRW,C. H. Robinson Worldwide,C. H. Robinson Worldwide,auto
+CHTR,Charter Communications,Charter Communications,auto
+CI,CIGNA Corp.,Cigna,manual
+CINF,Cincinnati Financial,Cincinnati Financial,auto
+CL,Colgate-Palmolive,Colgate-Palmolive,auto
+CLX,The Clorox Company,Clorox,auto
+CMA,Comerica Inc.,Comerica,auto
+CMCSA,Comcast Corp.,Comcast,auto
+CME,CME Group Inc.,CME Group,manual
+CMG,Chipotle Mexican Grill,Chipotle Mexican Grill,auto
+CMI,Cummins Inc.,Cummins Inc,manual
+CMS,CMS Energy,CMS Energy,auto
+CNC,Centene Corporation,Centene,auto
+CNP,CenterPoint Energy,CenterPoint Energy,auto
+COF,Capital One Financial,Capital One Financial,auto
+COG,Cabot Oil & Gas,Cabot Oil & Gas,auto
+COL,Rockwell Collins,Rockwell Collins,manual
+COO,The Cooper Companies,Cooper Companies,manual
+COP,ConocoPhillips,ConocoPhillips,auto
+COST,Costco Wholesale Corp.,Costco,manual
+COTY,"Coty, Inc",Coty,auto
+CPB,Campbell Soup,Campbell Soup,auto
+CRM,Salesforce.com,Salesforce,manual
+CSCO,Cisco Systems,Cisco,manual
+CSRA,CSRA Inc.,CSRA,auto
+CSX,CSX Corp.,CSX,auto
+CTAS,Cintas Corporation,Cintas,auto
+CTL,CenturyLink Inc,CenturyLink,auto
+CTSH,Cognizant Technology Solutions,Cognizant Technology Solutions,auto
+CTXS,Citrix Systems,Citrix Systems,auto
+CVS,CVS Health,CVS,manual
+CVX,Chevron Corp.,Chevron,auto
+CXO,Concho Resources,Concho Resources,auto
+D,Dominion Energy,Dominion Energy|Dominion Resources,manual
+DAL,Delta Air Lines Inc.,Delta Air Lines,manual
+DE,Deere & Co.,John Deere|Deere & Company,manual
+DFS,Discover Financial Services,Discover Financial Services,auto
+DG,Dollar General,Dollar General,auto
+DGX,Quest Diagnostics,Quest Diagnostics,auto
+DHI,D. R. Horton,D. R. Horton,auto
+DHR,Danaher Corp.,Danaher,auto
+DIS,The Walt Disney Company,Walt Disney|Disney,manual
+DISCA,Discovery Inc. Class A,Discovery Communications,manual
+DISCK,Discovery Inc. Class C,Discovery Communications,manual
+DISH,Dish Network,Dish Network,auto
+DLR,Digital Realty Trust Inc,Digital Realty Trust,auto
+DLTR,Dollar Tree,Dollar Tree,auto
+DOV,Dover Corp.,Dover Corporation,manual
+DPS,Dr Pepper Snapple Group,Dr Pepper Snapple,auto
+DRE,Duke Realty Corp,Duke Realty,auto
+DRI,Darden Restaurants,Darden Restaurants,auto
+DTE,DTE Energy Co.,DTE Energy,auto
+DUK,Duke Energy,Duke Energy,auto
+DVA,DaVita Inc.,DaVita,auto
+DVN,Devon Energy Corp.,Devon Energy,auto
+DWDP,DowDuPont,DowDuPont,manual
+DXC,DXC Technology,DXC Technology,auto
+EA,Electronic Arts,Electronic Arts,auto
+EBAY,eBay Inc.,eBay,auto
+ECL,Ecolab Inc.,Ecolab,auto
+ED,Consolidated Edison,Con Edison|Consolidated Edison,manual
+EFX,Equifax Inc.,Equifax,auto
+EIX,Edison Int'l,Edison International,manual
+EL,Estee Lauder Cos.,Estee Lauder,auto
+EMN,Eastman Chemical,Eastman Chemical,auto
+EMR,Emerson Electric Company,Emerson Electric,auto
+EOG,EOG Resources,EOG Resources,auto
+EQIX,Equinix,Equinix,auto
+EQR,Equity Residential,Equity Residential,auto
+EQT,EQT Corporation,EQT,auto
+ES,Eversource Energy,Eversource Energy,auto
+ESRX,Express Scripts,Express Scripts,auto
+ESS,"Essex Property Trust, Inc.",Essex Property Trust,auto
+ETFC,E*Trade,E*Trade|E-Trade,manual
+ETN,Eaton Corporation,Eaton Corporation,manual
+ETR,Entergy Corp.,Entergy,auto
+EVHC,Envision Healthcare,Envision Healthcare,auto
+EW,Edwards Lifesciences,Edwards Lifesciences,auto
+EXC,Exelon Corp.,Exelon,auto
+EXPD,Expeditors International,Expeditors International,auto
+EXPE,Expedia Inc.,Expedia,auto
+EXR,Extra Space Storage,Extra Space Storage,auto
+F,Ford Motor,Ford Motor,manual
+FAST,Fastenal Co,Fastenal,auto
+FB,"Facebook, Inc.",Facebook,manual
+FBHS,Fortune Brands Home & Security,Fortune Brands Home & Security,auto
+FCX,Freeport-McMoRan Inc.,Freeport-McMoRan,auto
+FDX,FedEx Corporation,FedEx,auto
+FE,FirstEnergy Corp,FirstEnergy,auto
+FFIV,F5 Networks,F5 Networks,auto
+FIS,Fidelity National Information Services,Fidelity National Information Services,auto
+FISV,Fiserv Inc,Fiserv,auto
+FITB,Fifth Third Bancorp,Fifth Third Bancorp,auto
+FL,Foot Locker Inc,Foot Locker,auto
+FLIR,FLIR Systems,FLIR Systems,auto
+FLR,Fluor Corp.,Fluor,auto
+FLS,Flowserve Corporation,Flowserve,auto
+FMC,FMC Corporation,FMC,auto
+FOX,Twenty-First Century Fox Class B,21st Century Fox|Twenty-First Century Fox,manual
+FOXA,Twenty-First Century Fox Class A,21st Century Fox|Twenty-First Century Fox,manual
+FRT,Federal Realty Investment Trust,Federal Realty Investment Trust,auto
+FTI,TechnipFMC,TechnipFMC,auto
+FTV,Fortive Corp,Fortive,auto
+GD,General Dynamics,General Dynamics,auto
+GE,General Electric,General Electric,manual
+GGP,General Growth Properties Inc.,General Growth Properties,auto
+GILD,Gilead Sciences,Gilead Sciences,auto
+GIS,General Mills,General Mills,auto
+GLW,Corning Inc.,Corning Inc,manual
+GM,General Motors,General Motors,manual
+GOOG,Alphabet Inc Class C,Alphabet|Google,manual
+GOOGL,Alphabet Inc Class A,Alphabet|Google,manual
+GPC,Genuine Parts,Genuine Parts,auto
+GPN,Global Payments Inc.,Global Payments,auto
+GPS,Gap Inc.,Gap Inc,manual
+GRMN,Garmin Ltd.,Garmin,auto
+GS,Goldman Sachs Group,Goldman Sachs,auto
+GT,Goodyear Tire & Rubber,Goodyear Tire & Rubber,auto
+GWW,Grainger (W.W.) Inc.,W. W. Grainger|W.W. Grainger,manual
+HAL,Halliburton Co.,Halliburton,auto
+HAS,Hasbro Inc.,Hasbro,auto
+HBAN,Huntington Bancshares,Huntington Bancshares,auto
+HBI,Hanesbrands Inc,Hanesbrands,auto
+HCA,HCA Holdings,HCA Healthcare|HCA Holdings,manual
+HCN,Welltower,Welltower|Health Care REIT,manual
+HCP,HCP Inc.,HCP,auto
+HD,Home Depot,Home Depot,auto
+HES,Hess Corporation,Hess Corporation,manual
+HIG,Hartford Financial Svc.Gp.,Hartford Financial,manual
+HII,Huntington Ingalls Industries,Huntington Ingalls Industries,auto
+HLT,Hilton Worldwide Holdings Inc,Hilton Worldwide,manual
+HOG,Harley-Davidson,Harley-Davidson,auto
+HOLX,Hologic,Hologic,auto
+HON,Honeywell Int'l Inc.,Honeywell,manual
+HP,Helmerich & Payne,Helmerich & Payne,auto
+HPE,Hewlett Packard Enterprise,Hewlett Packard Enterprise,auto
+HPQ,HP Inc.,Hewlett-Packard|HP Inc,manual
+HRB,Block H&R,H&R Block,manual
+HRL,Hormel Foods Corp.,Hormel Foods,auto
+HRS,Harris Corporation,Harris Corporation,manual
+HSIC,Henry Schein,Henry Schein,auto
+HST,Host Hotels & Resorts,Host Hotels & Resorts,auto
+HSY,The Hershey Company,Hershey Company|Hershey's,manual
+HUM,Humana Inc.,Humana,auto
+IBM,International Business Machines,IBM,manual
+ICE,Intercontinental Exchange,Intercontinental Exchange,auto
+IDXX,IDEXX Laboratories,IDEXX Laboratories,auto
+IFF,Intl Flavors & Fragrances,International Flavors & Fragrances,manual
+ILMN,Illumina Inc,Illumina,auto
+INCY,Incyte,Incyte,auto
+INFO,IHS Markit Ltd.,IHS Markit,manual
+INTC,Intel Corp.,Intel,auto
+INTU,Intuit Inc.,Intuit,auto
+IP,International Paper,International Paper,auto
+IPG,Interpublic Group,Interpublic,auto
+IQV,IQVIA Holdings Inc.,IQVIA,auto
+IR,Ingersoll-Rand PLC,Ingersoll-Rand,auto
+IRM,Iron Mountain Incorporated,Iron Mountain,auto
+ISRG,Intuitive Surgical Inc.,Intuitive Surgical,auto
+IT,Gartner Inc,Gartner,manual
+ITW,Illinois Tool Works,Illinois Tool Works,auto
+IVZ,Invesco Ltd.,Invesco,auto
+JBHT,J. B. Hunt Transport Services,J. B. Hunt Transport Services,auto
+JCI,Johnson Controls International,Johnson Controls International,auto
+JEC,Jacobs Engineering Group,Jacobs Engineering,auto
+JNJ,Johnson & Johnson,Johnson & Johnson,auto
+JNPR,Juniper Networks,Juniper Networks,auto
+JPM,JPMorgan Chase & Co.,JPMorgan|JP Morgan|J.P. Morgan,manual
+JWN,Nordstrom,Nordstrom,auto
+K,Kellogg Co.,Kellogg's|Kellogg Company,manual
+KEY,KeyCorp,KeyCorp,manual
+KHC,Kraft Heinz Co,Kraft Heinz|Kraft Foods,manual
+KIM,Kimco Realty,Kimco Realty,auto
+KLAC,KLA-Tencor Corp.,KLA-Tencor,auto
+KMB,Kimberly-Clark,Kimberly-Clark,auto
+KMI,Kinder Morgan,Kinder Morgan,auto
+KMX,Carmax Inc,CarMax,manual
+KO,Coca-Cola Company (The),Coca-Cola,manual
+KORS,Michael Kors Holdings,Michael Kors,auto
+KR,Kroger Co.,Kroger,auto
+KSS,Kohl's Corp.,Kohl's,manual
+KSU,Kansas City Southern,Kansas City Southern,auto
+L,Loews Corp.,Loews,manual
+LB,L Brands Inc.,L Brands,auto
+LEG,Leggett & Platt,Leggett & Platt,auto
+LEN,Lennar Corp.,Lennar,auto
+LH,Laboratory Corp. of America Holding,LabCorp|Laboratory Corporation of America,manual
+LKQ,LKQ Corporation,LKQ,auto
+LLL,L-3 Communications Holdings,L3 Technologies|L-3 Communications,manual
+LLY,Lilly (Eli) & Co.,Eli Lilly,manual
+LMT,Lockheed Martin Corp.,Lockheed Martin,auto
+LNC,Lincoln National,Lincoln National,auto
+LNT,Alliant Energy Corp,Alliant Energy,auto
+LOW,Lowe's Cos.,Lowe's,manual
+LRCX,Lam Research,Lam Research,auto
+LUK,Leucadia National Corp.,Leucadia National,auto
+LUV,Southwest Airlines,Southwest Airlines,manual
+LYB,LyondellBasell,LyondellBasell,auto
+M,Macy's Inc.,Macy's,manual
+MA,Mastercard Inc.,Mastercard,auto
+MAA,Mid-America Apartments,Mid-America Apartments,auto
+MAC,Macerich,Macerich,auto
+MAR,Marriott Int'l.,Marriott,manual
+MAS,Masco Corp.,Masco,auto
+MAT,Mattel Inc.,Mattel,auto
+MCD,McDonald's Corp.,McDonald's,manual
+MCHP,Microchip Technology,Microchip Technology,auto
+MCK,McKesson Corp.,McKesson,manual
+MCO,Moody's Corp,Moody's,manual
+MDLZ,Mondelez International,Mondelez International,auto
+MDT,Medtronic plc,Medtronic,auto
+MET,MetLife Inc.,MetLife,auto
+MGM,MGM Resorts International,MGM Resorts International,auto
+MHK,Mohawk Industries,Mohawk Industries,auto
+MKC,McCormick & Co.,McCormick & Company,manual
+MLM,Martin Marietta Materials,Martin Marietta Materials,auto
+MMC,Marsh & McLennan,Marsh & McLennan,auto
+MMM,3M Company,3M,manual
+MNST,Monster Beverage,Monster Beverage,auto
+MO,Altria Group Inc,Altria,manual
+MON,Monsanto Co.,Monsanto,auto
+MOS,The Mosaic Company,Mosaic Company,manual
+MPC,Marathon Petroleum,Marathon Petroleum,auto
+MRK,Merck & Co.,Merck & Co,manual
+MRO,Marathon Oil Corp.,Marathon Oil,auto
+MS,Morgan Stanley,Morgan Stanley,manual
+MSFT,Microsoft Corp.,Microsoft,auto
+MSI,Motorola Solutions Inc.,Motorola Solutions,auto
+MTB,M&T Bank Corp.,M&T Bank,auto
+MTD,Mettler Toledo,Mettler Toledo,auto
+MU,Micron Technology,Micron Technology,manual
+MYL,Mylan N.V.,Mylan,auto
+NAVI,Navient,Navient,auto
+NBL,Noble Energy Inc,Noble Energy,auto
+NCLH,Norwegian Cruise Line,Norwegian Cruise Line,auto
+NDAQ,"Nasdaq, Inc.",Nasdaq Inc|Nasdaq OMX,manual
+NEE,NextEra Energy,NextEra Energy,auto
+NEM,Newmont Mining Corporation,Newmont Mining,auto
+NFLX,Netflix Inc.,Netflix,auto
+NFX,Newfield Exploration Co,Newfield Exploration,auto
+NI,NiSource Inc.,NiSource,auto
+NKE,Nike,Nike,auto
+NLSN,Nielsen Holdings,Nielsen Holdings|Nielsen Company,manual
+NOC,Northrop Grumman Corp.,Northrop Grumman,auto
+NOV,National Oilwell Varco Inc.,National Oilwell Varco,auto
+NRG,NRG Energy,NRG Energy,auto
+NSC,Norfolk Southern Corp.,Norfolk Southern,auto
+NTAP,NetApp,NetApp,auto
+NTRS,Northern Trust Corp.,Northern Trust,auto
+NUE,Nucor Corp.,Nucor,auto
+NVDA,Nvidia Corporation,Nvidia,auto
+NWL,Newell Brands,Newell Brands,auto
+NWS,News Corp. Class B,News Corp,manual
+NWSA,News Corp. Class A,News Corp,manual
+O,Realty Income Corporation,Realty Income,manual
+OKE,ONEOK,ONEOK,auto
+OMC,Omnicom Group,Omnicom,auto
+ORCL,Oracle Corp.,Oracle,auto
+ORLY,O'Reilly Automotive,O'Reilly Auto,manual
+OXY,Occidental Petroleum,Occidental Petroleum,auto
+PAYX,Paychex Inc.,Paychex,auto
+PBCT,People's United Financial,People's United Financial,auto
+PCAR,PACCAR Inc.,PACCAR,auto
+PCG,PG&E Corp.,PG&E,auto
+PCLN,Priceline Group,Priceline,manual
+PDCO,Patterson Companies,Patterson Companies,manual
+PEG,Public Serv. Enterprise Inc.,Public Service Enterprise Group|PSEG,manual
+PEP,PepsiCo Inc.,PepsiCo,auto
+PFE,Pfizer Inc.,Pfizer,auto
+PFG,Principal Financial Group,Principal Financial,auto
+PG,Procter & Gamble,Procter & Gamble,auto
+PGR,Progressive Corp.,Progressive Corporation|Progressive Insurance,manual
+PH,Parker-Hannifin,Parker-Hannifin,auto
+PHM,Pulte Homes Inc.,PulteGroup|Pulte Homes,manual
+PKG,Packaging Corporation of America,Packaging Corporation of America,auto
+PKI,PerkinElmer,PerkinElmer,auto
+PLD,Prologis,Prologis,auto
+PM,Philip Morris International,Philip Morris International,manual
+PNC,PNC Financial Services,PNC Financial Services,auto
+PNR,Pentair Ltd.,Pentair,auto
+PNW,Pinnacle West Capital,Pinnacle West Capital,auto
+PPG,PPG Industries,PPG Industries,auto
+PPL,PPL Corp.,PPL,auto
+PRGO,Perrigo,Perrigo,auto
+PRU,Prudential Financial,Prudential Financial,auto
+PSA,Public Storage,Public Storage,auto
+PSX,Phillips 66,Phillips 66,auto
+PVH,PVH Corp.,PVH,auto
+PWR,Quanta Services Inc.,Quanta Services,auto
+PX,Praxair Inc.,Praxair,auto
+PXD,Pioneer Natural Resources,Pioneer Natural Resources,auto
+PYPL,PayPal,PayPal,auto
+QCOM,QUALCOMM Inc.,Qualcomm,manual
+QRVO,Qorvo,Qorvo,auto
+RCL,Royal Caribbean Cruises Ltd,Royal Caribbean Cruises,auto
+RE,Everest Re Group Ltd.,Everest Re,manual
+REG,Regency Centers Corporation,Regency Centers,auto
+REGN,Regeneron,Regeneron,auto
+RF,Regions Financial Corp.,Regions Financial,auto
+RHI,Robert Half International,Robert Half International,auto
+RHT,Red Hat Inc.,Red Hat,manual
+RJF,Raymond James Financial Inc.,Raymond James Financial,auto
+RL,Polo Ralph Lauren Corp.,Ralph Lauren,manual
+RMD,ResMed,ResMed,auto
+ROK,Rockwell Automation Inc.,Rockwell Automation,auto
+ROP,Roper Technologies,Roper Technologies,auto
+ROST,Ross Stores,Ross Stores,auto
+RRC,Range Resources Corp.,Range Resources,auto
+RSG,Republic Services Inc,Republic Services,manual
+RTN,Raytheon Co.,Raytheon,auto
+SBAC,SBA Communications,SBA Communications,auto
+SBUX,Starbucks Corp.,Starbucks,auto
+SCG,SCANA Corp,SCANA,auto
+SCHW,Charles Schwab Corporation,Charles Schwab,auto
+SEE,Sealed Air,Sealed Air,auto
+SHW,Sherwin-Williams,Sherwin-Williams,auto
+SIG,Signet Jewelers,Signet Jewelers,auto
+SJM,JM Smucker,JM Smucker,auto
+SLB,Schlumberger Ltd.,Schlumberger,auto
+SLG,SL Green Realty,SL Green Realty,auto
+SNA,Snap-On Inc.,Snap-On,auto
+SNI,Scripps Networks Interactive,Scripps Networks,manual
+SNPS,Synopsys Inc.,Synopsys,auto
+SO,Southern Co.,Southern Company,manual
+SPG,Simon Property Group Inc,Simon Property,auto
+SPGI,"S&P Global, Inc.",S&P Global|Standard & Poor's,manual
+SRCL,Stericycle Inc,Stericycle,auto
+SRE,Sempra Energy,Sempra Energy,auto
+STI,SunTrust Banks,SunTrust Banks,auto
+STT,State Street Corp.,State Street Corporation|State Street Corp,manual
+STX,Seagate Technology,Seagate Technology,auto
+STZ,Constellation Brands,Constellation Brands,auto
+SWK,Stanley Black & Decker,Stanley Black & Decker,auto
+SWKS,Skyworks Solutions,Skyworks Solutions,auto
+SYF,Synchrony Financial,Synchrony Financial,auto
+SYK,Stryker Corp.,Stryker,auto
+SYMC,Symantec Corp.,Symantec,auto
+SYY,Sysco Corp.,Sysco,auto
+T,AT&T Inc.,AT&T,manual
+TAP,Molson Coors Brewing Company,Molson Coors Brewing,auto
+TDG,TransDigm Group,TransDigm,auto
+TEL,TE Connectivity Ltd.,TE Connectivity,auto
+TGT,Target Corp.,Target Corporation|Target Corp,manual
+TIF,Tiffany & Co.,Tiffany & Co,manual
+TJX,TJX Companies Inc.,TJX,auto
+TMK,Torchmark Corp.,Torchmark,auto
+TMO,Thermo Fisher Scientific,Thermo Fisher Scientific,auto
+TPR,"Tapestry, Inc.",Tapestry Inc|Coach Inc,manual
+TRIP,TripAdvisor,TripAdvisor,auto
+TROW,T. Rowe Price Group,T. Rowe Price,auto
+TRV,The Travelers Companies Inc.,Travelers Companies,manual
+TSCO,Tractor Supply Company,Tractor Supply,auto
+TSN,Tyson Foods,Tyson Foods,auto
+TSS,Total System Services,Total System Services,auto
+TWX,Time Warner Inc.,Time Warner,manual
+TXN,Texas Instruments,Texas Instruments,auto
+TXT,Textron Inc.,Textron,auto
+UA,Under Armour Class C,Under Armour,manual
+UAA,Under Armour Class A,Under Armour,manual
+UAL,United Continental Holdings,United Airlines|United Continental,manual
+UDR,UDR Inc,UDR,auto
+UHS,"Universal Health Services, Inc.",Universal Health Services,auto
+ULTA,Ulta Beauty,Ulta Beauty,auto
+UNH,United Health Group Inc.,UnitedHealth,manual
+UNM,Unum Group,Unum,auto
+UNP,Union Pacific,Union Pacific,auto
+UPS,United Parcel Service,United Parcel Service,auto
+URI,"United Rentals, Inc.",United Rentals,auto
+USB,U.S. Bancorp,U.S. Bancorp,auto
+UTX,United Technologies,United Technologies,auto
+V,Visa Inc.,Visa Inc,manual
+VAR,Varian Medical Systems,Varian Medical Systems,auto
+VFC,V.F. Corp.,VF Corporation|V.F. Corporation,manual
+VIAB,Viacom Inc.,Viacom,auto
+VLO,Valero Energy,Valero Energy,auto
+VMC,Vulcan Materials,Vulcan Materials,auto
+VNO,Vornado Realty Trust,Vornado Realty Trust,auto
+VRSK,Verisk Analytics,Verisk Analytics,auto
+VRSN,Verisign Inc.,Verisign,auto
+VRTX,Vertex Pharmaceuticals Inc,Vertex Pharmaceuticals,manual
+VTR,Ventas Inc,Ventas,auto
+VZ,Verizon Communications,Verizon,manual
+WAT,Waters Corporation,Waters Corporation,manual
+WBA,Walgreens Boots Alliance,Walgreens,manual
+WDC,Western Digital,Western Digital,auto
+WEC,Wec Energy Group Inc,WEC Energy,manual
+WFC,Wells Fargo,Wells Fargo,auto
+WHR,Whirlpool Corp.,Whirlpool,auto
+WLTW,Willis Towers Watson,Willis Towers Watson,auto
+WM,Waste Management Inc.,Waste Management,auto
+WMB,Williams Cos.,Williams Companies,manual
+WMT,Wal-Mart Stores,Walmart|Wal-Mart,manual
+WRK,WestRock Company,WestRock,auto
+WU,Western Union Co,Western Union,auto
+WY,Weyerhaeuser Corp.,Weyerhaeuser,auto
+WYN,Wyndham Worldwide,Wyndham Worldwide,auto
+WYNN,Wynn Resorts Ltd,Wynn Resorts,auto
+XEC,Cimarex Energy,Cimarex Energy,auto
+XEL,Xcel Energy Inc,Xcel Energy,auto
+XL,XL Capital,XL Group|XL Catlin,manual
+XLNX,Xilinx Inc,Xilinx,auto
+XOM,Exxon Mobil Corp.,ExxonMobil|Exxon Mobil|Exxon,manual
+XRAY,Dentsply Sirona,Dentsply Sirona,auto
+XRX,Xerox Corp.,Xerox,auto
+XYL,Xylem Inc.,Xylem Inc,manual
+YUM,Yum! Brands Inc,Yum! Brands|Yum Brands,manual
+ZBH,Zimmer Biomet Holdings,Zimmer Biomet,auto
+ZION,Zions Bancorp,Zions Bancorp,auto
+ZTS,Zoetis,Zoetis,auto

@@ -1,0 +1,6 @@
+[
+  {"Name": "Primary", "InstanceGroupType": "MASTER", "InstanceType": "m5.xlarge", "InstanceCount": 1},
+  {"Name": "Core", "InstanceGroupType": "CORE", "InstanceType": "m5.xlarge", "InstanceCount": 2,
+   "EbsConfiguration": {"EbsBlockDeviceConfigs": [{"VolumesPerInstance": 1,
+     "VolumeSpecification": {"VolumeType": "gp3", "SizeInGB": 100, "Iops": 3000, "Throughput": 125}}]}}
+]

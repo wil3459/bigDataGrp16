@@ -57,7 +57,7 @@ CREATE EXTERNAL TABLE IF NOT EXISTS project.weekly_all (
   high_low_range DOUBLE,
   weekly_return DOUBLE,
   volume_vs_normal DOUBLE,
-  split_flag INT,
+  split_flag BIGINT,
   target_next_vol DOUBLE,
   split STRING
 )
