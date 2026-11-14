@@ -53,7 +53,7 @@ CREATE EXTERNAL TABLE IF NOT EXISTS project.weekly_all (
   vol_4w DOUBLE,
   vol_12w DOUBLE,
   vol_52w DOUBLE,
-  vol_52w_imputed INT,
+  vol_52w_imputed BIGINT,
   high_low_range DOUBLE,
   weekly_return DOUBLE,
   volume_vs_normal DOUBLE,
