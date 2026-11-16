@@ -1,0 +1,12 @@
+drwxr-xr-x   - hadoop hdfsadmingroup          0 2026-11-16 05:50 /project/inputs/full
+-rw-r--r--   2 hadoop hdfsadmingroup   29580549 2026-11-16 05:50 /project/inputs/full/all_stocks_5yr.csv
+drwxr-xr-x   - hadoop hdfsadmingroup          0 2026-11-16 05:50 /project/inputs/full/wikinews
+-rw-r--r--   2 hadoop hdfsadmingroup  482143381 2026-11-16 05:50 /project/inputs/full/wikinews/enwikinews-20261001-pages-meta-history1.xml-p1p481753.bz2
+-rw-r--r--   2 hadoop hdfsadmingroup  179859131 2026-11-16 05:50 /project/inputs/full/wikinews/enwikinews-20261001-pages-meta-history1.xml-p481754p3096188.bz2
+drwxr-xr-x   - hadoop hdfsadmingroup          0 2026-11-16 05:50 /project/inputs/reference
+-rw-r--r--   2 hadoop hdfsadmingroup      18656 2026-11-16 05:50 /project/inputs/reference/constituents_2018.csv
+drwxr-xr-x   - hadoop hdfsadmingroup          0 2026-11-16 05:50 /project/inputs/sample
+-rw-r--r--   2 hadoop hdfsadmingroup    2993809 2026-11-16 05:50 /project/inputs/sample/all_stocks_5yr_sample.csv
+drwxr-xr-x   - hadoop hdfsadmingroup          0 2026-11-16 05:50 /project/inputs/sample/wikinews
+-rw-r--r--   2 hadoop hdfsadmingroup   77946259 2026-11-16 05:50 /project/inputs/sample/wikinews/enwikinews-20261001-pages-meta-history1.xml-p1p481753.bz2
+-rw-r--r--   2 hadoop hdfsadmingroup   20709092 2026-11-16 05:50 /project/inputs/sample/wikinews/enwikinews-20261001-pages-meta-history1.xml-p481754p3096188.bz2

@@ -1,0 +1,2 @@
+3219bfe60c08137f40ac174b7c7b422e156219e994a90f736e64c6e30f5b4e3c  /home/hadoop/inputs/wikinews_sample/enwikinews-20261001-pages-meta-history1.xml-p1p481753.bz2
+0d16e8da40a09a74fb3d34e3f0f8293858df09147de5e10031f6e74df1940099  /home/hadoop/inputs/wikinews_sample/enwikinews-20261001-pages-meta-history1.xml-p481754p3096188.bz2

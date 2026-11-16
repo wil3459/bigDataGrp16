@@ -1,0 +1,2 @@
+-rw-r--r--. 1 hadoop hadoop 482143381 Oct  1 10:55 enwikinews-20261001-pages-meta-history1.xml-p1p481753.bz2
+-rw-r--r--. 1 hadoop hadoop 179859131 Oct  1 10:57 enwikinews-20261001-pages-meta-history1.xml-p481754p3096188.bz2

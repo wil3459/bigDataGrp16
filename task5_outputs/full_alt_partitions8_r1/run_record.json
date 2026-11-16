@@ -1,0 +1,158 @@
+{
+  "run_id": "full_alt_partitions8_r1",
+  "profile": "full",
+  "config": "alt_partitions8",
+  "repeat": 1,
+  "shuffle_partitions": 8,
+  "finished_utc": "2026-11-16T06:10:26.546949Z",
+  "stage_seconds": {
+    "t2_streaming_audit": 32.1,
+    "t2_hive_register": 12.6,
+    "t2_spark_features": 157.9,
+    "t2_hive_reconcile": 28.0,
+    "t2_wikinews_streaming": 500.9,
+    "t2_hive_register_news": 11.0,
+    "t2_spark_news": 70.1,
+    "t2_hive_reconcile_news": 25.7,
+    "spark_session_start": 12.7,
+    "task3_total": 105.8,
+    "task4_total": 12.5,
+    "end_to_end": 977.0
+  },
+  "yarn_app_ids": [
+    "application_1794807792769_0001",
+    "application_1794807792769_0003",
+    "application_1794807792769_0004",
+    "application_1794807792769_0005",
+    "application_1794807792769_0007",
+    "application_1794807792769_0008",
+    "application_1794807792769_0009"
+  ],
+  "raw_rows": 619040,
+  "accepted_rows": 605887,
+  "rejected_rows": 13153,
+  "weekly_rows": {
+    "train": 66907,
+    "val": 25310,
+    "test": 25441
+  },
+  "final_model": "linreg {\"regParam\": 0.0}",
+  "test_model": {
+    "rmse": 0.008882,
+    "mae": 0.005631,
+    "r2": 0.1005
+  },
+  "test_baseline": {
+    "vol_12w": {
+      "rmse": 0.009849,
+      "mae": 0.006395,
+      "r2": -0.106
+    }
+  },
+  "hdfs_du": {
+    "/project/raw/prices/all_stocks_5yr.csv": [
+      "29580549",
+      "59161098"
+    ],
+    "/project/raw/wikinews": [
+      "662002512",
+      "1324005024"
+    ],
+    "/project/prepared": [
+      "49780410",
+      "99560820"
+    ],
+    "/project/runs/full_alt_partitions8_r1": [
+      "9382214",
+      "18764428"
+    ]
+  },
+  "hdfs_report": "DFS Remaining: 117382970556 (109.32 GB)\nDFS Used: 4067969520 (3.79 GB)\nName: 172.31.16.158:9866 (ip-172-31-16-158.ec2.internal)\nDFS Used: 2033984760 (1.89 GB)\nNon DFS Used: 1386298120 (1.29 GB)\nDFS Remaining: 58690248286 (54.66 GB)\nName: 172.31.30.78:9866 (ip-172-31-30-78.ec2.internal)\nDFS Used: 2033984760 (1.89 GB)\nNon DFS Used: 1383824136 (1.29 GB)\nDFS Remaining: 58692722270 (54.66 GB)\n",
+  "spark_ui_evidence": {
+    "application_1794807792769_0009": {
+      "numCompleteTasks": 3475,
+      "inputBytes": 4432960831,
+      "shuffleReadBytes": 63394844,
+      "shuffleWriteBytes": 60989975,
+      "memoryBytesSpilled": 0,
+      "diskBytesSpilled": 0,
+      "stages": 906
+    },
+    "application_1794807792769_0003": {
+      "numCompleteTasks": 23,
+      "inputBytes": 159284910,
+      "shuffleReadBytes": 23418568,
+      "shuffleWriteBytes": 23418568,
+      "memoryBytesSpilled": 0,
+      "diskBytesSpilled": 0,
+      "stages": 22
+    },
+    "application_1794807792769_0007": {
+      "numCompleteTasks": 107,
+      "inputBytes": 65680155,
+      "shuffleReadBytes": 10133471,
+      "shuffleWriteBytes": 10133471,
+      "memoryBytesSpilled": 0,
+      "diskBytesSpilled": 0,
+      "stages": 49
+    }
+  },
+  "executor_memory": [
+    {
+      "id": "driver",
+      "maxMemory": 1099746508,
+      "peakJVMHeap": 739286560
+    },
+    {
+      "id": "2",
+      "maxMemory": 3247649587,
+      "peakJVMHeap": 1589990816
+    },
+    {
+      "id": "1",
+      "maxMemory": 3247649587,
+      "peakJVMHeap": 1299757336
+    }
+  ],
+  "wikinews_input": "/project/inputs/full/wikinews",
+  "wikinews_counters": {
+    "dropped_not_article": 221984,
+    "dropped_outside_2013_2017": 20676,
+    "dropped_redirect": 21587,
+    "dropped_unpublished": 27,
+    "expanded_bytes": 12584154269,
+    "kept_articles": 1626,
+    "pages_total": 265900,
+    "reducer_unique_articles": 1626
+  },
+  "wikinews_articles": 1626,
+  "wikinews_matched_articles": 225,
+  "weekly_rows_with_news": 272,
+  "news_comparison": {
+    "validation": {
+      "model_a_price_only": {
+        "val_rmse": 0.010168,
+        "val_mae": 0.006615,
+        "val_r2": 0.2177
+      },
+      "model_b_with_news": {
+        "val_rmse": 0.010169,
+        "val_mae": 0.006614,
+        "val_r2": 0.2175
+      }
+    },
+    "test": {
+      "model_a_price_only": {
+        "rmse": 0.008882,
+        "mae": 0.005631,
+        "r2": 0.1005
+      },
+      "model_b_with_news": {
+        "rmse": 0.008882,
+        "mae": 0.005631,
+        "r2": 0.1004
+      }
+    },
+    "final_feature_set": "A (price only)"
+  }
+}
