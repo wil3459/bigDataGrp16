@@ -1,4 +1,4 @@
-#INF2006 Big Data Project
+# INF2006 Big Data Project
 
 Predicting next-week stock volatility for 505 S&P 500 stocks (2013–2017) from daily prices and English Wikinews, built on AWS EMR with Hadoop Streaming, HDFS, Hive and PySpark.
 
