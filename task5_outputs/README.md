@@ -8,9 +8,9 @@
 **Not counted, kept unedited:** lines 6–11 are six extra runs with the reference setting. They were logged as `full_reference_r3` because the notebook was open in two tabs that shared one kernel. Each run overwrote the folder, so `full_reference_r3/` holds the last one; `commands.log` has all seven runs one after another. Line 16 (`full_reference_r4`) was run on the 16 Nov cluster to check it performed like the 15 Nov cluster (974.6 s, within the reference range), and it's the run used for the reload check.
 
 **Other files:**
-- `model_best_r4/`: the saved PipelineModel verified by the reload check (`full_reference_r4/task3_reload_check/`, PASS). `model_best/` is the identical model from `full_reference_r1`.
+- `model_best_r4/`: the saved PipelineModel verified by the reload check (`full_reference_r4/task3_reload_check/`, PASS). 
 - `<run>/run_record.json`: stage timings, row counts, test metrics, HDFS sizes, executor memory, Spark UI totals, Wikinews counters.
 - `<run>/task3_evidence/`: Task 3 candidate models, A vs B comparison, test metrics, weights.
-- `inputs_records/`, `inputs_records_day3/`: download times, checksums, sizes, HDFS listings.
+- `inputs_records_day3/`: download times, checksums, sizes, HDFS listings.
 - `hdfs_report_*.txt`, `yarn_applications*.txt`: HDFS use per node, and YARN application IDs.
 - `task5_versions.txt`: software versions (recorded 10 Nov on the same EMR release, emr-7.10.0).
