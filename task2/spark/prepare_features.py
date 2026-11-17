@@ -1,4 +1,4 @@
-"""Assessed Task 2 job. Run this with spark-submit on EMR, not on a laptop.
+"""Assessed Task 2 job.
 
 It reads the original CSV from HDFS, writes rejected and cleaned daily rows,
 then writes the train, validation, and test weekly tables. The weekly math
@@ -78,8 +78,7 @@ def main():
         .flatMap(build_partition)
         .cache()
     )
-    # One number is collected so the training median can be reused. The daily
-    # price table and the weekly table stay on the executors.
+    # All training vol_52w values (about 67,000 numbers) are collected to take the median; the daily and weekly tables stay on the executors
     training_vols = (
         weekly_rdd.filter(lambda row: row["ready"] and row["split"] == "train" and row["vol_52w"] is not None)
         .map(lambda row: row["vol_52w"])
