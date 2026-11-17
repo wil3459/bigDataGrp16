@@ -1,11 +1,13 @@
 {
   "generated_utc": "2026-10-24T06:10:16.636601+00:00",
   "run_mode": "local",
-  "sources": {
-    "prices": "REPLACE_WITH_LECTURER_SOURCE_OR_DOWNLOAD_REFERENCE",
-    "gdelt": "REPLACE_WITH_EXACT_GDELT_SOURCE_ARCHIVE_REFERENCE"
+   "sources": {
+    "prices": "https://raw.githubusercontent.com/plotly/datasets/master/all_stocks_5yr.csv",
+    "wikinews": "https://dumps.wikimedia.org/enwikinews/20261001/",
+    "sp500_list": "https://raw.githubusercontent.com/datasets/s-and-p-500-companies/5dfdfbc3b9f52802f89e72da6e050b5cafdec4a6/data/constituents.csv",
+    "gdelt": "assessed locally, not used (3 daily export files, 27-29 Dec 2017)"
   },
-  "acquired_utc": "REPLACE_WITH_ACTUAL_DOWNLOAD_DATE_UTC",
+  "acquired_utc": "prices 2026-11-15T05:07:54Z; wikinews 2026-11-14T15:26:07Z (see task5_outputs/inputs_records/)",
   "price_file_count": 1,
   "gdelt_file_count": 3,
   "price_quality": {
@@ -100,11 +102,7 @@
   "gdelt_total_invalid_dates": 0,
   "gdelt_total_invalid_column_counts": 0,
   "limitations": [
-    "Only three GDELT archives (27-29 December 2017) were assessed as a test sample.",
-    "GDELT missing-value checks covered five selected fields, not all 58 columns.",
-    "SQLDATE was validated, but DATEADDED and numeric value ranges require further validation.",
-    "Source links, acquisition timestamps and remaining data dictionary descriptions require verification.",
-    "Local inspection does not satisfy required EMR/HDFS execution evidence.",
-    "Additional GDELT historical data is required for the final stock prediction analysis."
+    "This file is the local price audit and GDELT assessment; the assessed acquisition and HDFS staging were done on EMR (task5_outputs/inputs_records/).",
+    "GDELT was not used: the sample covers only late Dec 2017 and events have no link to stock tickers. Wikinews was used instead."
   ]
 }
