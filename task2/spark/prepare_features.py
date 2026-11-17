@@ -1,4 +1,4 @@
-"""Assessed Task 2 job.
+"""Task 2, Part A: clean daily prices and build the weekly feature tables (spark-submit on EMR).
 
 It reads the original CSV from HDFS, writes rejected and cleaned daily rows,
 then writes the train, validation, and test weekly tables. The weekly math

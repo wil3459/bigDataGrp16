@@ -1,5 +1,4 @@
--- Register the original price file and the tables written by prepare_features.py.
--- Spark SQL does not replace this step. Run these statements in Hive on EMR.
+-- Run in Hive on EMR (hive -f); Spark reads these tables through the Hive metastore.
 
 CREATE DATABASE IF NOT EXISTS project;
 

@@ -1,4 +1,4 @@
--- Task 2, Part B checks. Run after news_features.py. Paste the output into the report / Appendix B.
+-- Task 2, Part B checks. Run after news_features.py. Output appears in cell 2 of task5_pipeline.ipynb.
 
 SELECT 'articles_2013_2017' AS check_name, COUNT(*) AS n FROM project.wikinews_articles;
 
