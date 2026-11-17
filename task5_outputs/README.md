@@ -11,6 +11,6 @@
 - `model_best_r4/`: the saved PipelineModel verified by the reload check (`full_reference_r4/task3_reload_check/`, PASS). 
 - `<run>/run_record.json`: stage timings, row counts, test metrics, HDFS sizes, executor memory, Spark UI totals, Wikinews counters.
 - `<run>/task3_evidence/`: Task 3 candidate models, A vs B comparison, test metrics, weights.
-- `inputs_records_day3/`: download times, checksums, sizes, HDFS listings.
+- `inputs_records/`: download times, checksums, sizes, HDFS listings.
 - `hdfs_report_*.txt`, `yarn_applications*.txt`: HDFS use per node, and YARN application IDs.
 - `task5_versions.txt`: software versions (recorded 10 Nov on the same EMR release, emr-7.10.0).
